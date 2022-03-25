@@ -1,5 +1,7 @@
 # [DSI] Práctica 7 - Digitalizando la colección de música de los abuelos - GRUPO Q
 
+[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/badge.svg?branch=master)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q?branch=master)
+
 ### Componentes del grupo que han realizado el proyecto:
 - Jairo Alonso Abreu [(alu0101330778@ull.edu.es)](alu0101330778@ull.edu.es)
 - José Javier Díaz González [(alu0101128894@ull.edu.es)](alu0101128894@ull.edu.es)
