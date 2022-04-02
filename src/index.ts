@@ -9,13 +9,13 @@ export class Grupo {
 }
 
 export class Artista {
+  private oyentesMensuales_: number; /* suma de los oyentes en sus grupos mas las de sus canciones propias */
   constructor(
     private nombre_: string,
-    private grupos_: Grupo[], /* o Artista*/
+    private grupos_: Grupo[],
     private generos_: Genero[],
     private albumes_: Album[],
-    private canciones_: Cancion[],
-    private oyentesMensuales_: number /* suma de los oyentes en sus grupos mas las de sus canciones propias */) {}
+    private canciones_: Cancion[]) {}
 }
 
 export class Genero {
@@ -30,6 +30,7 @@ export class Cancion {
   constructor(
     private nombre_: string,
     private autor_: string, /* o Artista*/
+    private generos_: Genero[],
     private duracion_: string,
     private single_: boolean,
     private reproducciones_: number) {}
@@ -41,7 +42,7 @@ export class Album {
     private autor_: string, /* o Artista*/
     private añoPublicacion_: number,
     private generos_: Genero[],
-    private reproducciones_: number) {}
+    private canciones_: Cancion[]) {}
 }
 
 export class PlayList {
@@ -49,6 +50,5 @@ export class PlayList {
     private nombre_: string,
     private autor_: string, /* o Artista*/
     private canciones_: Cancion[],
-    private generos_: Genero[],
-    private duracion_: string) {}
+    private generos_: Genero[]) {}
 }
