@@ -48,7 +48,7 @@ export class Album {
 export class PlayList {
   constructor(
     private nombre_: string,
-    private autor_: string, /* o Artista*/
     private canciones_: Cancion[],
+    private duracion_: string,
     private generos_: Genero[]) {}
 }

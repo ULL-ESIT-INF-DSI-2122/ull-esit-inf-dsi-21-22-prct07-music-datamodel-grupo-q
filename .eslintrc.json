@@ -22,6 +22,7 @@
         "prefer-const": "off",
         "no-unused-vars": "off",
         "max-len": "off",
-        "indent": "off"
+        "indent": "off",
+        "padded-blocks": "off"
     }
 }
