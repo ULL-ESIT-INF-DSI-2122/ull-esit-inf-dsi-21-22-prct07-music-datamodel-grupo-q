@@ -48,5 +48,8 @@ describe('Descripción de la biblioteca Musical', () => {
     it('Comprobación de getAlbumes() ', () => {
       expect(musical.getAlbumes()).to.be.equal([{album: motomami}]);
     });
+    it('Comprobación de getCanciones() ', () => {
+      expect(musical.getCanciones()).to.be.equal( [{cancion: saoko}]);
+    });
   });
 });
