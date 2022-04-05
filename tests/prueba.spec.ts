@@ -8,7 +8,7 @@ import {division} from '../src/prueba';
 
 describe('operaciones complejas', () => {
   it('suma entre dos numeros', () => {
-    expect(add(1, 7)).to.eql(8);
+    expect(add(1, 8)).to.eql(9);
   });
   it('resta entre dos numeros', () => {
     expect(resta(1, 7)).to.eql(-6);
