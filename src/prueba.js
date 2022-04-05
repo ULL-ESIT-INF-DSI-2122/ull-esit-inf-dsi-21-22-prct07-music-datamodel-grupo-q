@@ -1,51 +1,32 @@
-'use strict';
-const inquirer = require('..');
-const chalkPipe = require('chalk-pipe');
-
-const questions = [
-  {
-    type: 'input',
-    name: 'first_name',
-    message: "What's your first name",
-  },
-  {
-    type: 'input',
-    name: 'last_name',
-    message: "What's your last name",
-    default() {
-      return 'Doe';
-    },
-  },
-  {
-    type: 'input',
-    name: 'fav_color',
-    message: "What's your favorite color",
-    transformer(color, answers, flags) {
-      const text = chalkPipe(color)(color);
-      if (flags.isFinal) {
-        return text + '!';
-      }
-
-      return text;
-    },
-  },
-  {
-    type: 'input',
-    name: 'phone',
-    message: "What's your phone number",
-    validate(value) {
-      const pass = value.match(
-        /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/i
-      );
-      if (pass) {
-        return true;
-      }
-
-      return 'Please enter a valid phone number';
-    },
-  },
-];
-
-inquirer.prompt(questions).then((answers) => {
-  console.log(JSON.stringify(answers, null, '  '));
-});
+"use strict";
+/* eslint-disable max-len */
+/*
+* @param firstnumber aaaa
+* @param secondnumber aaaaaa
+* @return bbbbbb
+* ```typescript
+*     add(1,7) = 8
+*```
+*/
+exports.__esModule = true;
+exports.division = exports.multiplicacion = exports.resta = exports.add = void 0;
+function add(firstnumber, secondnumber) {
+    return firstnumber + secondnumber;
+}
+exports.add = add;
+console.log("add(1,7): ".concat(add(1, 7)));
+function resta(firstnumber, secondnumber) {
+    return firstnumber - secondnumber;
+}
+exports.resta = resta;
+console.log("resta(1,7): ".concat(resta(1, 7)));
+function multiplicacion(firstnumber, secondnumber) {
+    return firstnumber * secondnumber;
+}
+exports.multiplicacion = multiplicacion;
+console.log("multiplicacion(1,7): ".concat(multiplicacion(1, 7)));
+function division(firstnumber, secondnumber) {
+    return firstnumber / secondnumber;
+}
+exports.division = division;
+console.log("division(1,7): ".concat(division(1, 7)));

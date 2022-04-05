@@ -2,10 +2,10 @@
   "name": "ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q",
   "version": "1.0.0",
   "description": "### Componentes del grupo que han realizado el proyecto: - Jairo Alonso Abreu [(alu0101330778@ull.edu.es)](alu0101330778@ull.edu.es) - José Javier Díaz González [(alu0101128894@ull.edu.es)](alu0101128894@ull.edu.es) - Daniel Hernández Fajardo [(alu0101320489@ull.edu.es)](alu0101320489@ull.edu.es) - Álvaro Rodríguez Gómez [(alu0101362953@ull.edu.es)](alu0101362953@ull.edu.es)",
-  "main": "index.js",
+  "main": "prueba.js",
   "scripts": {
     "test": "mocha",
-    "start": "tsc-watch --onSuccess \"node dist/index.js\"",
+    "start": "tsc-watch --onSuccess \"node dist/prueba.js\"",
     "docum": "typedoc",
     "coverage": "nyc npm test && nyc report --reporter=lcov"
   },

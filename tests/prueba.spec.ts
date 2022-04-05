@@ -1,9 +1,9 @@
 import 'mocha';
 import {expect} from 'chai';
-import {add} from '../src/index';
-import {resta} from '../src/index';
-import {multiplicacion} from '../src/index';
-import {division} from '../src/index';
+import {add} from '../src/prueba';
+import {resta} from '../src/prueba';
+import {multiplicacion} from '../src/prueba';
+import {division} from '../src/prueba';
 
 
 describe('operaciones complejas', () => {
