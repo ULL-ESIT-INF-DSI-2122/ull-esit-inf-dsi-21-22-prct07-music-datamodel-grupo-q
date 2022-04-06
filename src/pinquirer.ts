@@ -29,7 +29,7 @@ export class TodoCollection {
       this.itemMap.set(this.nextId, new TodoItem(this.nextId, task));
       return this.nextId;
   }
-  getTodoById(id: number) : TodoItem {
+  getTodoById(id: number) : TodoItem | undefined {
       return this.itemMap.get(id);
   }
   getTodoItems(includeComplete: boolean): TodoItem[] {
@@ -47,7 +47,7 @@ export class TodoCollection {
           if (item.complete) {
               this.itemMap.delete(item.id);
           }
-      })
+      });
   }
   getItemCounts(): ItemCounts {
       return {
@@ -64,8 +64,8 @@ let todos: TodoItem[] = [
 let collection: TodoCollection = new TodoCollection("Adam", todos);
 let showCompleted = true;
 function displayTodoList(): void {
-    console.log(`${collection.userName}'s Todo List `
-        + `(${ collection.getItemCounts().incomplete } items to do)`);
+    console.log(`${collection.userName}'s Todo List ` +
+               `(${ collection.getItemCounts().incomplete } items to do)`);
     collection.getTodoItems(showCompleted).forEach(item => item.printDetails());
 }
 enum Commands {
@@ -77,12 +77,14 @@ enum Commands {
 }
 function promptAdd(): void {
     console.clear();
-    inquirer.prompt({ type: "input", name: "add", message: "Enter task:"})
-        .then(answers => {if (answers["add"] !== "") {
-            collection.addTodo(answers["add"]);
-        }
-        promptUser();
-    })
+    inquirer.prompt({ type: "checkbox", name: "add", message: "Enter task:",
+                      choices: ['hola', 'pprueba', 'no me metas']})
+        .then(answers => {
+            if (answers["add"] !== "") {
+                collection.addTodo(answers["add"]);
+            }
+            promptUser();
+        });
 }
 function promptComplete(): void {
     console.clear();
@@ -90,14 +92,14 @@ function promptComplete(): void {
         type: "checkbox", name: "complete",
         message: "Mark Tasks Complete",
         choices: collection.getTodoItems(showCompleted).map(item =>
-            ({name: item.task, value: item.id, checked: item.complete}))
-    }).then(answers => {
+            ({name: item.task, value: item.id, checked: item.complete}))})
+    .then(answers => {
         let completedTasks = answers["complete"] as number[];
         collection.getTodoItems(true).forEach(item =>
             collection.markComplete(item.id,
                 completedTasks.find(id => id === item.id) != undefined));
         promptUser();
-    })
+    });
 }
 function promptUser(): void {
     console.clear();
