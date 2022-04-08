@@ -1,5 +1,8 @@
-import {Genero} from "..";
-
+import lowdb from "lowdb";
+import FileSync from "lowdb/adapters/FileSync";
+import {Genero} from "./genero";
+import { schemaCancion } from "./schema";
+import { schemaGenero } from "./schema";
 export class Cancion {
     constructor(
       private nombre_: string,
@@ -47,3 +50,24 @@ export class Cancion {
         this.reproducciones_ = reproducciones;
     }
   }
+
+export class JsonCancionCollection {
+    private database:lowdb.LowdbSync<schemaCancion>;
+    constructor(public coleccion:Cancion[]) {
+        this.database = lowdb(new FileSync("data.json"));
+        if (this.database.has("canciones").value()) {
+            let dbItems = this.database.get("canciones").value();
+            dbItems.forEach(item => this.coleccion.push(new Cancion(item.nombre, item.autor, item.generos, item.duracion, item.single, item.reproducciones)));
+        }
+    }
+    addCancion(n: string, a: string, g: Genero[], d: string, s: boolean, r: number) {
+        this.coleccion.push(new Cancion(n, a, g, d, s, r));
+        this.database.get("canciones").push({nombre: n, autor: a, generos: g, duracion: d, single: s, reproducciones: r}).write();
+    }
+    deleteCancion(n: string) {
+        this.database.get("canciones").remove({nombre: n}).write();
+    }
+    getCancion(n: number): Cancion {
+        return this.coleccion[n];
+    }
+}
