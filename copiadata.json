@@ -15,22 +15,6 @@
       "duracion": "2:10",
       "single": true,
       "reproducciones": 50000
-    },
-    {
-      "nombre": "Macarena",
-      "autor": "aaaaay",
-      "generos": [],
-      "duracion": "4:50",
-      "single": false,
-      "reproducciones": 1000000
-    },
-    {
-      "nombre": "delete",
-      "autor": "felix",
-      "generos": [],
-      "duracion": "3:10",
-      "single": false,
-      "reproducciones": 4
     }
   ]
 }

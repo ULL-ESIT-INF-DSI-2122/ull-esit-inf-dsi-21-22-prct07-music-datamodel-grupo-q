@@ -49,6 +49,16 @@ export class Cancion {
     setReproducciones(reproducciones: number): void {
         this.reproducciones_ = reproducciones;
     }
+    printData() {
+      console.log(this.nombre_, (this.single_)?' Single': '');
+      console.log('Autor: ', this.autor_);
+      console.log('Genero: ', this.autor_);
+      console.log('D: ', this.duracion_, ' R: ', this.reproducciones_);
+    }
+    convertJSON(): (number | string | boolean | Genero[])[] {
+      // this.generos_[0].getNombre()
+      return [this.nombre_, this.autor_, this.generos_, this.duracion_, this.single_, this.reproducciones_];
+    }
   }
 
 export class JsonCancionCollection {
@@ -64,10 +74,32 @@ export class JsonCancionCollection {
         this.coleccion.push(new Cancion(n, a, g, d, s, r));
         this.database.get("canciones").push({nombre: n, autor: a, generos: g, duracion: d, single: s, reproducciones: r}).write();
     }
-    deleteCancion(n: string) {
-        this.database.get("canciones").remove({nombre: n}).write();
+    deleteCancion(n: string): boolean {
+      if (this.coleccion.find((element) => {
+        element.getNombre() === n;
+      }) != undefined) {
+        this.coleccion = this.coleccion.filter((element) => {
+          element.getNombre() !== n;
+        });
+        this.database.get("canciones").remove({nombre: n}).commit();
+        return true;
+      } else {
+        return false;
+      }
     }
     getCancion(n: number): Cancion {
         return this.coleccion[n];
+    }
+    getCancionByName(n: string): Cancion | undefined {
+      return this.coleccion.find((element) => {
+        element.getNombre() === n;
+      });
+    }
+    displayCanciones() {
+      console.log('──────────────────────────');
+      this.coleccion.forEach((cancion)=> {
+        cancion.printData();
+        console.log('──────────────────────────');
+      });
     }
 }
