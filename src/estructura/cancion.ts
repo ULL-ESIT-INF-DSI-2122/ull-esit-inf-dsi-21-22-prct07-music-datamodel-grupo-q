@@ -58,7 +58,7 @@ export class JsonCancionCollection {
         if (this.database.has("canciones").value()) {
             let dbItems = this.database.get("canciones").value();
             dbItems.forEach(item => this.coleccion.push(new Cancion(item.nombre, item.autor, item.generos, item.duracion, item.single, item.reproducciones)));
-        }
+        } // Deberia hacer un else para crear la base o algo asi
     }
     addCancion(n: string, a: string, g: Genero[], d: string, s: boolean, r: number) {
         this.coleccion.push(new Cancion(n, a, g, d, s, r));

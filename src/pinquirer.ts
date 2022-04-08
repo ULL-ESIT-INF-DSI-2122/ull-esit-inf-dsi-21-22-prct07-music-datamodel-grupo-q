@@ -1,50 +1,52 @@
-export class TodoItem {
+// https://www.npmjs.com/package/inquirer#documentation
+
+export class Cancion {
   public id: number;
-  public task: string;
-  public complete: boolean = false;
-  public constructor(id: number, task: string, complete: boolean = false) {
+  public cancion_: string;
+  public escuchada: boolean = false;
+  public constructor(id: number, cancion_: string, escuchada: boolean = false) {
       this.id = id;
-      this.task = task;
-      this.complete = complete;
+      this.cancion_ = cancion_;
+      this.escuchada = escuchada;
   }
   public printDetails() : void {
-      console.log(`${this.id}\t${this.task} ${this.complete? "\t(complete)": ""}`);
+      console.log(`${this.id}\t${this.cancion_} ${this.escuchada? "\t(escuchada)": ""}`);
   }
 }
 
 type ItemCounts = {
   total: number,
-  incomplete: number
+  inescuchada: number
 }
 export class TodoCollection {
   private nextId: number = 1;
-  private itemMap = new Map<number, TodoItem>();
-  constructor(public userName: string, todoItems: TodoItem[] = []) {
-      todoItems.forEach(item => this.itemMap.set(item.id, item));
+  private itemMap = new Map<number, Cancion>();
+  constructor(public userName: string, Cancions: Cancion[] = []) {
+      Cancions.forEach(item => this.itemMap.set(item.id, item));
   }
-  addTodo(task: string): number {
+  addTodo(cancion_: string): number {
       while (this.getTodoById(this.nextId)) {
           this.nextId++;
       }
-      this.itemMap.set(this.nextId, new TodoItem(this.nextId, task));
+      this.itemMap.set(this.nextId, new Cancion(this.nextId, cancion_));
       return this.nextId;
   }
-  getTodoById(id: number) : TodoItem | undefined {
+  getTodoById(id: number) : Cancion | undefined {
       return this.itemMap.get(id);
   }
-  getTodoItems(includeComplete: boolean): TodoItem[] {
+  getCancions(includeescuchada: boolean): Cancion[] {
       return [...this.itemMap.values()]
-          .filter(item => includeComplete || !item.complete);
+          .filter(item => includeescuchada || !item.escuchada);
   }
-  markComplete(id: number, complete: boolean) {
-      const todoItem = this.getTodoById(id);
-      if (todoItem) {
-          todoItem.complete = complete;
+  markescuchada(id: number, escuchada: boolean) {
+      const Cancion = this.getTodoById(id);
+      if (Cancion) {
+          Cancion.escuchada = escuchada;
       }
   }
-  removeComplete() {
+  removeescuchada() {
       this.itemMap.forEach(item => {
-          if (item.complete) {
+          if (item.escuchada) {
               this.itemMap.delete(item.id);
           }
       });
@@ -52,33 +54,31 @@ export class TodoCollection {
   getItemCounts(): ItemCounts {
       return {
           total: this.itemMap.size,
-          incomplete: this.getTodoItems(false).length
-      };
+          inescuchada: this.getCancions(false).length};
   }
 }
 
 import * as inquirer from 'inquirer';
-let todos: TodoItem[] = [
-    new TodoItem(1, "Buy Flowers"), new TodoItem(2, "Get Shoes"),
-    new TodoItem(3, "Collect Tickets"), new TodoItem(4, "Call Joe", true)];
+let todos: Cancion[] = [
+    new Cancion(1, "Buy Flowers"), new Cancion(2, "Get Shoes"),
+    new Cancion(3, "Collect Tickets"), new Cancion(4, "Call Joe", true)];
 let collection: TodoCollection = new TodoCollection("Adam", todos);
-let showCompleted = true;
+let showescuchadad = true;
 function displayTodoList(): void {
     console.log(`${collection.userName}'s Todo List ` +
-               `(${ collection.getItemCounts().incomplete } items to do)`);
-    collection.getTodoItems(showCompleted).forEach(item => item.printDetails());
+               `(${ collection.getItemCounts().inescuchada } items to do)`);
+    collection.getCancions(showescuchadad).forEach(item => item.printDetails());
 }
 enum Commands {
-    Add = "Add New Task",
-    Complete = "Complete Task",
-    Toggle = "Show/Hide Completed",
-    Purge = "Remove Completed Tasks",
+    Add = "Add New cancion_",
+    escuchada = "escuchada cancion_",
+    Toggle = "Show/Hide escuchadad",
+    Purge = "Remove escuchadad cancion_s",
     Quit = "Quit"
 }
 function promptAdd(): void {
     console.clear();
-    inquirer.prompt({ type: "checkbox", name: "add", message: "Enter task:",
-                      choices: ['hola', 'pprueba', 'no me metas']})
+    inquirer.prompt({ type: "input", name: "add", message: "Enter cancion:"})
         .then(answers => {
             if (answers["add"] !== "") {
                 collection.addTodo(answers["add"]);
@@ -86,18 +86,18 @@ function promptAdd(): void {
             promptUser();
         });
 }
-function promptComplete(): void {
+function promptescuchada(): void {
     console.clear();
     inquirer.prompt({
-        type: "checkbox", name: "complete",
-        message: "Mark Tasks Complete",
-        choices: collection.getTodoItems(showCompleted).map(item =>
-            ({name: item.task, value: item.id, checked: item.complete}))})
+        type: "checkbox", name: "escuchada",
+        message: "Mark cancion_s escuchada",
+        choices: collection.getCancions(showescuchadad).map(item =>
+            ({name: item.cancion_, value: item.id, checked: item.escuchada}))})
     .then(answers => {
-        let completedTasks = answers["complete"] as number[];
-        collection.getTodoItems(true).forEach(item =>
-            collection.markComplete(item.id,
-                completedTasks.find(id => id === item.id) != undefined));
+        let escuchadadcancion_s = answers["escuchada"] as number[];
+        collection.getCancions(true).forEach(item =>
+            collection.markescuchada(item.id,
+                escuchadadcancion_s.find(id => id === item.id) != undefined));
         promptUser();
     });
 }
@@ -112,21 +112,21 @@ function promptUser(): void {
     }).then(answers => {
         switch (answers["command"]) {
             case Commands.Toggle:
-                showCompleted = !showCompleted;
+                showescuchadad = !showescuchadad;
                 promptUser();
                 break;
             case Commands.Add:
                 promptAdd();
                 break;
-            case Commands.Complete:
-                if (collection.getItemCounts().incomplete > 0) {
-                    promptComplete();
+            case Commands.escuchada:
+                if (collection.getItemCounts().inescuchada > 0) {
+                    promptescuchada();
                 } else {
                     promptUser();
                 }
                 break;
             case Commands.Purge:
-                collection.removeComplete();
+                collection.removeescuchada();
                 promptUser();
                 break;
         }
