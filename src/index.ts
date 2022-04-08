@@ -30,7 +30,7 @@ export class Cancion {
   constructor(
     private nombre_: string,
     private autor_: string, /* o Artista*/
-    private generos_: Genero[],
+    private generos_: string[],
     private duracion_: string,
     private single_: boolean,
     private reproducciones_: number) {}

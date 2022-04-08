@@ -13,19 +13,9 @@ function sleep(ms: number) {
 // los datos sin ser una variable global
 const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
 
-enum Comandos{
-  Add = "Añadir cancion",
-  List = "Listar canciones",
-  Delete = "Borrer cancion",
-  escuchada = "Marcar como escuchada",
-  Toggle = "Show/Hide escuchadas",
-  Purge = "Borrar Canciones",
-  Quit = "Quit"
-}
-
 function promptDelete() {
   enum CDel {
-    Borrar = "Borrar una cancion",
+    Borrar = "Borrar una cancion exisitente",
     Quit = "Salir"
   }
   console.clear();
@@ -36,12 +26,14 @@ function promptDelete() {
           case CDel.Borrar:
             process.stdout.write('Nombre> ');
             const n: string = scanf('%s');
-            if (col.deleteCancion(n)) {
+            // if (col.getCancionByName(n) != undefined) {
+              col.deleteCancion(n);
               console.log(n, " se elimino correctamente.");
-            } else {
-              console.log('Error. ', n, ' no se encontro en Guardados.');
-            }
-            // sleep(3);
+            // } else {
+            //  console.log('Error. ', n, ' no se encontro en Guardados.');
+            // }
+            sleep(3000);
+            scanf('%s');
             promptUser();
             break;
           case CDel.Quit:
@@ -51,6 +43,56 @@ function promptDelete() {
       });
 }
 
+function promptDeleteExisting() { // col.coleccion.map(e => e.getNombre())
+  console.clear();
+  inquirer.prompt({
+       type: "checkbox", name: "DelCanEx",
+       message: "Seleccione las canciones que quiera borrar: ",
+                    choices: col.coleccion.map(e => e.getNombre())})
+      .then(answers => {
+        let borradas = answers["DelCanEx"] as string[];
+        col.deleteCancionesVector(borradas);
+        promptUser();
+      });
+}
+
+function promptMod() {
+  enum CMod {
+    Mod = "Modificar",
+    Quit = "Salir"
+  }
+  console.clear();
+  inquirer.prompt({ type: "list", name: "ModCancion", message: "Modificar Canciones:",
+                    choices: Object.values(CMod)})
+      .then(answers => {
+        switch (answers["ModCancion"]) {
+          case CMod.Mod:
+
+            process.stdout.write('Nombre> ');
+            const n: string = scanf('%s');
+            if (col.includesCancion(n)) {
+              process.stdout.write('Autor> ');
+              const a: string = scanf('%s');
+              process.stdout.write('Duracion> ');
+              const d: string = scanf('%s');
+              process.stdout.write('Single?> ');
+              const s: boolean = (scanf('%d') > 0)? true: false;
+              process.stdout.write('Reproducciones> ');
+              const r: number = scanf('%d');
+              col.deleteCancion(n);
+              col.addCancion(n, a, [], d, s, r);
+            } else {
+              console.log(n, ' no esta guardada.');
+              scanf('%s');
+            }
+            promptUser();
+            break;
+          case CMod.Quit:
+            promptUser();
+            break;
+        }
+      });
+}
 
 function promptAdd() {
   enum CAdd {
@@ -88,13 +130,40 @@ function promptAdd() {
       });
 }
 
+function promptOrdenCancion() {
+  enum OrdenCancion {
+    Single = "Mostrar / Ocultar Singles",
+    Repr = "Por numero de reproducciones"
+  }
+    console.clear();
+    inquirer.prompt({
+        type: "list", name: "OrdenCan",
+        message: "Seleccione las canciones que quiera borrar: ",
+        choices: Object.values(OrdenCancion)})
+        .then(answers => {
+          switch (answers["OrdenCan"]) {
+            case OrdenCancion.Single:
+              col.ordSingles();
+              promptList();
+              break;
+            case OrdenCancion.Repr:
+              col.ordRepros(true);
+              promptList();
+              break;
+            default:
+              promptUser();
+              break;
+          }
+        });
+}
+
 function promptList() {
   enum CList{
     Ordenar = "Ordenar",
     Quit = "Salir"
   }
   console.clear();
-  col.displayCanciones();
+  col.displayMode();
   inquirer.prompt({
     type: "list",
     name: "comand",
@@ -103,8 +172,7 @@ function promptList() {
   }).then(answers => {
     switch (answers["comand"]) {
       case CList.Ordenar:
-        console.log('Ordeno las listas');
-        promptList();
+        promptOrdenCancion();
         break;
       case CList.Quit:
         promptUser();
@@ -114,6 +182,17 @@ function promptList() {
 }
 
 function promptUser(): void {
+
+  enum Comandos{
+    Add = "Añadir cancion",
+    List = "Listar canciones",
+    Delete = "Borrer cancion",
+    Mod = 'Modificar cancion',
+    escuchada = "Marcar como escuchada",
+    Toggle = "Show/Hide escuchadas",
+    Purge = "Borrar Canciones",
+    Quit = "Quit"
+  }
   let showEscuchadas: boolean = false;
   console.clear();
   inquirer.prompt({
@@ -131,18 +210,14 @@ function promptUser(): void {
               promptAdd();
               break;
           case Comandos.Delete:
-            promptDelete();
+            promptDeleteExisting();
               break;
           case Comandos.List:
             promptList();
             break;
-          /* case Comandos.escuchada:
-              if (collection.getItemCounts().inescuchada > 0) {
-                  promptescuchada();
-              } else {
-                  promptUser();
-              }
-              break; */
+          case Comandos.Mod:
+            promptMod();
+            break;
           case Comandos.Purge:
               promptUser();
               break;

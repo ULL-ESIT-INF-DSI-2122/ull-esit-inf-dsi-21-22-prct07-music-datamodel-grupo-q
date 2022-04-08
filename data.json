@@ -9,28 +9,44 @@
       "reproducciones": 400000
     },
     {
-      "nombre": "Buleria",
-      "autor": "Bisbal",
+      "nombre": "Macarena",
+      "autor": "nohay",
       "generos": [],
       "duracion": "2:10",
       "single": true,
-      "reproducciones": 50000
+      "reproducciones": 3
     },
     {
-      "nombre": "Macarena",
-      "autor": "aaaaay",
-      "generos": [],
-      "duracion": "4:50",
-      "single": false,
-      "reproducciones": 1000000
-    },
-    {
-      "nombre": "delete",
-      "autor": "felix",
+      "nombre": "Buleria",
+      "autor": "Bisbal",
       "generos": [],
       "duracion": "3:10",
+      "single": true,
+      "reproducciones": 40000
+    },
+    {
+      "nombre": "hola",
+      "autor": "pedro",
+      "generos": [],
+      "duracion": "34",
       "single": false,
-      "reproducciones": 4
+      "reproducciones": 123
+    },
+    {
+      "nombre": "adios",
+      "autor": "juan",
+      "generos": [],
+      "duracion": "57",
+      "single": false,
+      "reproducciones": 3524
+    },
+    {
+      "nombre": "chao",
+      "autor": "gustavo",
+      "generos": [],
+      "duracion": "789",
+      "single": true,
+      "reproducciones": 352
     }
   ]
 }

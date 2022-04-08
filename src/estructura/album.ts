@@ -1,5 +1,5 @@
 import {Genero} from "..";
-import {Cancion} from "..";
+import {Cancion} from "../estructura/cancion";
 
 export class Album {
     constructor(
