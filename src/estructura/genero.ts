@@ -54,24 +54,24 @@ export class JsonGeneroCollection {
         } // Deberia hacer un else para crear la base o algo asi
         this.displayMod = this.coleccion;
     }
-    addCancion(n: string, g: string[], art: string[], alb: string[], c: string[]) {
+    addGenero(n: string, g: string[], art: string[], alb: string[], c: string[]) {
         this.coleccion.push(new Genero(n, g, art, alb, c));
         this.database.get("generos").push({nombre: n, grupos: g, artistas: g, albumes: alb, canciones: c}).write();
     }
-    deleteCancion(n: string) {
+    deleteGenero(n: string) {
         this.database.get("generos").remove({nombre: n}).write();
         this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
       }
-      deleteCancionesVector(gs: string[]) {
+      deleteGeneroVector(gs: string[]) {
         gs.forEach(e => {
           this.database.get("generos").remove({nombre: e}).write();
           this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
         });
       }
-      getCancion(n: number): Genero {
+      getGenero(n: number): Genero {
           return this.coleccion[n];
       }
-      includesCancion(n: string): boolean {
+      includesGenero(n: string): boolean {
         let isIn: boolean = false;
         this.coleccion.forEach(element => {
           if (element.getNombre() === n) {
@@ -80,7 +80,7 @@ export class JsonGeneroCollection {
         });
         return isIn;
     }
-    getCancionByName(n: string): Genero | undefined {
+    getGeneroByName(n: string): Genero | undefined {
       return this.coleccion.find((element) => {
         element.getNombre() === n;
       });

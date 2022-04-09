@@ -16,3 +16,7 @@ export type schemaGrupo = {
 export type schemaAlbum = {
     albumes: {nombre: string, autor: string, año: number, generos: string[], canciones: string[]}[]
 };
+
+export type schemaArtista = {
+    artistas: {nombre: string, grupos: string[], generos: string[], albumes: string[], canciones: string[]}[]
+};

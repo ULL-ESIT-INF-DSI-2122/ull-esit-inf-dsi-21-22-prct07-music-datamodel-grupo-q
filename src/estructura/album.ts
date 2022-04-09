@@ -55,24 +55,24 @@ export class JsonAlbumCollection {
         } // Deberia hacer un else para crear la base o algo asi
         this.displayMod = this.coleccion;
     }
-    addCancion(n: string, aut: string, a: number, g: string[], c: string[]) {
+    addAlbum(n: string, aut: string, a: number, g: string[], c: string[]) {
         this.coleccion.push(new Album(n, aut, a, g, c));
         this.database.get("albumes").push({nombre: n, autor: aut, año: a, generos: g, canciones: c}).write();
     }
-    deleteCancion(n: string) {
+    deleteAlbum(n: string) {
         this.database.get("albumes").remove({nombre: n}).write();
         this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
       }
-      deleteCancionesVector(as: string[]) {
+      deleteAlbumVector(as: string[]) {
         as.forEach(e => {
           this.database.get("albumes").remove({nombre: e}).write();
           this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
         });
       }
-      getCancion(n: number): Album {
+      getAlbum(n: number): Album {
           return this.coleccion[n];
       }
-      includesCancion(n: string): boolean {
+      includesAlbum(n: string): boolean {
         let isIn: boolean = false;
         this.coleccion.forEach(element => {
           if (element.getNombre() === n) {
@@ -81,7 +81,7 @@ export class JsonAlbumCollection {
         });
         return isIn;
     }
-    getCancionByName(n: string): Album | undefined {
+    getAlbumByName(n: string): Album | undefined {
       return this.coleccion.find((element) => {
         element.getNombre() === n;
       });

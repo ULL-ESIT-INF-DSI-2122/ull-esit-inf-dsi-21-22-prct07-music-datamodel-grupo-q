@@ -61,24 +61,24 @@ export class JsonGrupoCollection {
       } // Deberia hacer un else para crear la base o algo asi
       this.displayMod = this.coleccion;
   }
-  addCancion(n: string, c: string[], a: number, g: string[], alb: string[], o: number) {
+  addGrupo(n: string, c: string[], a: number, g: string[], alb: string[], o: number) {
       this.coleccion.push(new Grupo(n, c, a, g, alb, o));
       this.database.get("generos").push({nombre: n, componentes: c, año: a, generos: g, albumes: alb, oyentes: o}).write();
   }
-  deleteCancion(n: string) {
+  deleteGrupo(n: string) {
       this.database.get("generos").remove({nombre: n}).write();
       this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
     }
-    deleteCancionesVector(gs: string[]) {
+    deleteGrupoVector(gs: string[]) {
       gs.forEach(e => {
         this.database.get("generos").remove({nombre: e}).write();
         this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
       });
     }
-    getCancion(n: number): Grupo {
+    getGrupo(n: number): Grupo {
         return this.coleccion[n];
     }
-    includesCancion(n: string): boolean {
+    includesGrupo(n: string): boolean {
       let isIn: boolean = false;
       this.coleccion.forEach(element => {
         if (element.getNombre() === n) {
@@ -87,7 +87,7 @@ export class JsonGrupoCollection {
       });
       return isIn;
   }
-  getCancionByName(n: string): Grupo | undefined {
+  getGrupoByName(n: string): Grupo | undefined {
     return this.coleccion.find((element) => {
       element.getNombre() === n;
     });
