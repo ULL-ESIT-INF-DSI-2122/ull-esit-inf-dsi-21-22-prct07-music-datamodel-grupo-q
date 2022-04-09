@@ -1,29 +1,29 @@
-import {Genero} from "..";
-import {Artista} from "..";
-import {Album} from "..";
+import lowdb from "lowdb";
+import FileSync from "lowdb/adapters/FileSync";
+import { schemaGrupo } from "./schema";
 
 export class Grupo {
   constructor(
     private nombre_: string,
-    private componentes_: Artista[], /* o Artista*/
+    private componentes_: string[], /* o Artista*/
     private añoCreacion_: number,
-    private generos_: Genero[],
-    private albumes_: Album[],
+    private generos_: string[],
+    private albumes_: string[],
     private oyentesMensuales_: number) { }
 
   getNombre(): string {
     return this.nombre_;
   }
-  getComponentes(): Artista[] {
+  getComponentes(): string[] {
     return this.componentes_;
   }
   getAñoCreacion(): number {
     return this.añoCreacion_;
   }
-  getGeneros(): Genero[] {
+  getGeneros(): string[] {
     return this.generos_;
   }
-  getAlbumes(): Album[] {
+  getAlbumes(): string[] {
     return this.albumes_;
   }
   getOyentes(): number {
@@ -33,19 +33,63 @@ export class Grupo {
   setNombre(nombre: string): void {
     this.nombre_ = nombre;
   }
-  setComponentes(componentes: Artista[]): void {
+  setComponentes(componentes: string[]): void {
       this.componentes_ = componentes;
   }
   setAñoCreacion(añocreacion: number): void {
     this.añoCreacion_ = añocreacion;
   }
-  setGeneros(generos: Genero[]): void {
+  setGeneros(generos: string[]): void {
       this.generos_ = generos;
   }
-  setAlbumes(albumes: Album[]): void {
+  setAlbumes(albumes: string[]): void {
       this.albumes_ = albumes;
   }
   setOyentes(oyentes: number): void {
       this.oyentesMensuales_ = oyentes;
+  }
+}
+
+export class JsonGrupoCollection {
+  private displayMod: Grupo[];
+  private database:lowdb.LowdbSync<schemaGrupo>; 
+  constructor(public coleccion: Grupo[]) {
+      this.database = lowdb(new FileSync("db_grupos.json"));
+      if (this.database.has("grupos").value()) {
+          let dbItems = this.database.get("grupos").value();
+          dbItems.forEach(item => this.coleccion.push(new Grupo(item.nombre, item.componentes, item.año, item.generos, item.albumes, item.oyentes)));
+      } // Deberia hacer un else para crear la base o algo asi
+      this.displayMod = this.coleccion;
+  }
+  addCancion(n: string, c: string[], a: number, g: string[], alb: string[], o: number) {
+      this.coleccion.push(new Grupo(n, c, a, g, alb, o));
+      this.database.get("generos").push({nombre: n, componentes: c, año: a, generos: g, albumes: alb, oyentes: o}).write();
+  }
+  deleteCancion(n: string) {
+      this.database.get("generos").remove({nombre: n}).write();
+      this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
+    }
+    deleteCancionesVector(gs: string[]) {
+      gs.forEach(e => {
+        this.database.get("generos").remove({nombre: e}).write();
+        this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
+      });
+    }
+    getCancion(n: number): Grupo {
+        return this.coleccion[n];
+    }
+    includesCancion(n: string): boolean {
+      let isIn: boolean = false;
+      this.coleccion.forEach(element => {
+        if (element.getNombre() === n) {
+          isIn = true;
+        }
+      });
+      return isIn;
+  }
+  getCancionByName(n: string): Grupo | undefined {
+    return this.coleccion.find((element) => {
+      element.getNombre() === n;
+    });
   }
 }
