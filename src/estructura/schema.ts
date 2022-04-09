@@ -20,3 +20,7 @@ export type schemaAlbum = {
 export type schemaArtista = {
     artistas: {nombre: string, grupos: string[], generos: string[], albumes: string[], canciones: string[]}[]
 };
+
+export type schemaPlayList = {
+    playlists: {nombre: string, canciones: string[], duracion: string, generos: string[]}[]
+};
