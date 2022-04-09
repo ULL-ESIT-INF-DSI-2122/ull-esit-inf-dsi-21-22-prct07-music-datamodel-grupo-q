@@ -2,51 +2,19 @@
   "canciones": [
     {
       "nombre": "Alone",
-      "autor": "Alan",
-      "generos": [],
+      "autor": "Alan Walker",
+      "generos": ["Pop", "Electronica"],
       "duracion": "2:45",
       "single": true,
-      "reproducciones": 400000
+      "reproducciones": 1200000000
     },
     {
-      "nombre": "Macarena",
-      "autor": "nohay",
-      "generos": [],
-      "duracion": "2:10",
-      "single": true,
-      "reproducciones": 3
-    },
-    {
-      "nombre": "Buleria",
-      "autor": "Bisbal",
-      "generos": [],
-      "duracion": "3:10",
-      "single": true,
-      "reproducciones": 40000
-    },
-    {
-      "nombre": "hola",
-      "autor": "pedro",
-      "generos": [],
-      "duracion": "34",
+      "nombre": "Enemy",
+      "autor": "Imagine Dragons",
+      "generos": ["Pop],
+      "duracion": "3:33",
       "single": false,
-      "reproducciones": 123
-    },
-    {
-      "nombre": "adios",
-      "autor": "juan",
-      "generos": [],
-      "duracion": "57",
-      "single": false,
-      "reproducciones": 3524
-    },
-    {
-      "nombre": "chao",
-      "autor": "gustavo",
-      "generos": [],
-      "duracion": "789",
-      "single": true,
-      "reproducciones": 352
+      "reproducciones": 150000000
     }
   ]
 }
