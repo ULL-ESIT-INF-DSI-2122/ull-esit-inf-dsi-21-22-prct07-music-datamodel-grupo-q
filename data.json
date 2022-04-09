@@ -11,7 +11,7 @@
     {
       "nombre": "Enemy",
       "autor": "Imagine Dragons",
-      "generos": ["Pop],
+      "generos": ["Pop"],
       "duracion": "3:33",
       "single": false,
       "reproducciones": 150000000
