@@ -12,3 +12,7 @@ export type schemaGenero = {
 export type schemaGrupo = {
     grupos: {nombre: string, componentes: string[], año: number, generos: string[], albumes: string[], oyentes: number}[]
 };
+
+export type schemaAlbum = {
+    albumes: {nombre: string, autor: string, año: number, generos: string[], canciones: string[]}[]
+};
