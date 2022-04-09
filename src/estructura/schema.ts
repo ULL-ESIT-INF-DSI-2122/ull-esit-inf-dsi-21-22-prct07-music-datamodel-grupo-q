@@ -6,5 +6,5 @@ export type schemaCancion = {
 };
 
 export type schemaGenero = {
-    generos: {nombre: string}[]
+    generos: {nombre: string, grupos: string[], artistas: string[], albumes: string[], canciones: string[]}[]
 };
