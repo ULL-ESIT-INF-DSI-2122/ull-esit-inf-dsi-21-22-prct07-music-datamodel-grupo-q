@@ -79,7 +79,7 @@ export class Artista {
     private displayMod: Artista[];
     private database:lowdb.LowdbSync<schemaArtista>; 
     constructor(public coleccion: Artista[]) {
-        this.database = lowdb(new FileSync("db_artistas.json"));
+        this.database = lowdb(new FileSync("dataBase/db_artistas.json"));
         if (this.database.has("artistas").value()) {
             let dbItems = this.database.get("artistas").value();
             dbItems.forEach(item => this.coleccion.push(new Artista(item.nombre, item.grupos, item.generos, item.albumes, item.canciones)));

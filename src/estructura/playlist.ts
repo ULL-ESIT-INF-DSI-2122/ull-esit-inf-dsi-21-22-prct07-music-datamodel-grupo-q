@@ -40,7 +40,7 @@ export class PlayList {
     private displayMod: PlayList[];
     private database:lowdb.LowdbSync<schemaPlayList>; 
     constructor(public coleccion: PlayList[]) {
-        this.database = lowdb(new FileSync("db_playlists.json"));
+        this.database = lowdb(new FileSync("dataBase/db_playlists.json"));
         if (this.database.has("playlists").value()) {
             let dbItems = this.database.get("playlists").value();
             dbItems.forEach(item => this.coleccion.push(new PlayList(item.nombre, item.canciones, item.duracion, item.generos)));

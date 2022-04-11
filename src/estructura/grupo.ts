@@ -54,7 +54,7 @@ export class JsonGrupoCollection {
   private displayMod: Grupo[];
   private database:lowdb.LowdbSync<schemaGrupo>;
   constructor(public coleccion: Grupo[]) {
-      this.database = lowdb(new FileSync("db_grupos.json"));
+      this.database = lowdb(new FileSync("dataBase/db_grupos.json"));
       if (this.database.has("grupos").value()) {
           let dbItems = this.database.get("grupos").value();
           dbItems.forEach(item => this.coleccion.push(new Grupo(item.nombre, item.componentes, item.año, item.generos, item.albumes, item.oyentes)));
