@@ -20,16 +20,6 @@
       "duracion": "3:33",
       "single": false,
       "reproducciones": 150000000
-    },
-    {
-      "nombre": "Buleria",
-      "autor": "Bisbal",
-      "generos": [
-        "Pop"
-      ],
-      "duracion": "2:10",
-      "single": true,
-      "reproducciones": 50000
     }
   ]
 }
