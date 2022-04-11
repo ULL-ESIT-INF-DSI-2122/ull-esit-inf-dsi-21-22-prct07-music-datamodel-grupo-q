@@ -11,6 +11,8 @@ function sleep(ms: number) {
 
 // Mas adelante buscare la manera de que PromptUser reciba
 // los datos sin ser una variable global
+
+let onlySingles: boolean = false; // Al principio se muestran todos
 const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
 
 function promptDelete() {
@@ -133,7 +135,8 @@ function promptAdd() {
 function promptOrdenCancion() {
   enum OrdenCancion {
     Single = "Mostrar / Ocultar Singles",
-    Repr = "Por numero de reproducciones"
+    Repr = "Por numero de reproducciones",
+    Alph = "Alfabeticamente"
   }
     console.clear();
     inquirer.prompt({
@@ -143,13 +146,22 @@ function promptOrdenCancion() {
         .then(answers => {
           switch (answers["OrdenCan"]) {
             case OrdenCancion.Single:
-              col.ordSingles();
+              onlySingles = !onlySingles;
+              col.ordSingles(onlySingles);
               promptList();
               break;
             case OrdenCancion.Repr:
-              col.ordRepros(true);
+            process.stdout.write('Ascendentemente?> ');
+            const ascR: boolean = (scanf('%d') > 0)? true: false;
+              col.ordRepros(ascR);
               promptList();
               break;
+            case OrdenCancion.Alph:
+              process.stdout.write('Ascendentemente?> ');
+              const ascA: boolean = (scanf('%d') > 0)? true: false;
+                col.ordAlfabeticoTitulo(ascA);
+                promptList();
+                break;
             default:
               promptUser();
               break;

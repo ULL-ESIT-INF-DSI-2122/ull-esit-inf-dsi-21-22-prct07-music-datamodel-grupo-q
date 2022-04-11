@@ -12,5 +12,5 @@ export interface AlbumOrdenable{
 
 export interface CancionOrdenable{
   ordAlfabeticoTitulo(asc: boolean): Cancion[];
-  ordSingles(): Cancion[];
+  ordSingles(s: boolean): Cancion[];
 }

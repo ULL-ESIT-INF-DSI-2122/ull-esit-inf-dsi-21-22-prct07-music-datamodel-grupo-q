@@ -53,12 +53,12 @@ export class PlayList {
     }
     deletePlayList(n: string) {
         this.database.get("playlists").remove({nombre: n}).write();
-        this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
+        this.coleccion = this.coleccion.filter(element => { element.getNombre() !== n});
       }
       deletePlayListVector(gs: string[]) {
         gs.forEach(e => {
           this.database.get("playlists").remove({nombre: e}).write();
-          this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
+          this.coleccion = this.coleccion.filter(buenas => { buenas.getNombre() !== e});
         });
       }
       getPlayList(n: number): PlayList {

@@ -61,12 +61,12 @@ export class JsonAlbumCollection {
     }
     deleteAlbum(n: string) {
         this.database.get("albumes").remove({nombre: n}).write();
-        this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
+        this.coleccion = this.coleccion.filter(element => { element.getNombre() !== n});
       }
       deleteAlbumVector(as: string[]) {
         as.forEach(e => {
           this.database.get("albumes").remove({nombre: e}).write();
-          this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
+          this.coleccion = this.coleccion.filter(buenas => { buenas.getNombre() !== e});
         });
       }
       getAlbum(n: number): Album {
