@@ -63,15 +63,15 @@ export class JsonGrupoCollection {
   }
   addGrupo(n: string, c: string[], a: number, g: string[], alb: string[], o: number) {
       this.coleccion.push(new Grupo(n, c, a, g, alb, o));
-      this.database.get("generos").push({nombre: n, componentes: c, año: a, generos: g, albumes: alb, oyentes: o}).write();
+      this.database.get("grupos").push({nombre: n, componentes: c, año: a, generos: g, albumes: alb, oyentes: o}).write();
   }
   deleteGrupo(n: string) {
-      this.database.get("generos").remove({nombre: n}).write();
+      this.database.get("grupos").remove({nombre: n}).write();
       this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
     }
     deleteGrupoVector(gs: string[]) {
       gs.forEach(e => {
-        this.database.get("generos").remove({nombre: e}).write();
+        this.database.get("grupos").remove({nombre: e}).write();
         this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
       });
     }

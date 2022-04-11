@@ -12,7 +12,7 @@ describe('Comprobar clase Cancion - Test', () => {
       col.deleteCancion('Buleria');
     });
     it('Existe función deleteCancionesVector()', () => {
-      // console.log(col.deleteCancionesVector([]));
+      col.deleteCancionesVector([]);
     });
     it('Existe Función getCancion()', () => {
       expect(col.getCancion(0).getNombre()).to.eql('Alone');
