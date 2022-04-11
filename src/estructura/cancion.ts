@@ -2,8 +2,7 @@ import lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import { schemaCancion } from "./schema";
 import {CancionOrdenable, CommonOrdenable} from "../Interfaces/BaseInterface";
-// import { Cancion } from "..";
-// import { Cancion } from "..";
+
 export class Cancion {
     constructor(
       private nombre_: string,

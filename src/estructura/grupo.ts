@@ -52,7 +52,7 @@ export class Grupo {
 
 export class JsonGrupoCollection {
   private displayMod: Grupo[];
-  private database:lowdb.LowdbSync<schemaGrupo>; 
+  private database:lowdb.LowdbSync<schemaGrupo>;
   constructor(public coleccion: Grupo[]) {
       this.database = lowdb(new FileSync("db_grupos.json"));
       if (this.database.has("grupos").value()) {

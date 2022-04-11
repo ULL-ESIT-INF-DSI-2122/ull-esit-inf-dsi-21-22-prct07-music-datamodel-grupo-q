@@ -138,7 +138,7 @@ function promptOrdenCancion() {
     console.clear();
     inquirer.prompt({
         type: "list", name: "OrdenCan",
-        message: "Seleccione las canciones que quiera borrar: ",
+        message: "Seleccione como quiere ordenar las canciones: ",
         choices: Object.values(OrdenCancion)})
         .then(answers => {
           switch (answers["OrdenCan"]) {

@@ -13,7 +13,7 @@
     "outDir": "./dist",
     "module": "CommonJS", 
     //"noImplicitAny": true,                     /* Expressions and declarations with an implied 'any' type. */
-    "strictNullChecks": true,                  /* Strict null checks. */
+    // "strictNullChecks": true,                  /* Strict null checks. */
     "esModuleInterop": true,
     "suppressExcessPropertyErrors": true,
     "forceConsistentCasingInFileNames": true,  /* Ensure that casing is correct in imports. */
