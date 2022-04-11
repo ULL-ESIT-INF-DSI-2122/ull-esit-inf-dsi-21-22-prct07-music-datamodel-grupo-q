@@ -1,5 +1,11 @@
 {
     "grupos": [
-
+        {
+            "nombre": " ",
+            "componentes": [" ", " "],
+            "año": 2000,
+            "generos": [" ", " "],
+            "canciones": [" ", " "]
+        }
     ]
 }

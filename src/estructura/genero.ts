@@ -47,7 +47,7 @@ export class JsonGeneroCollection {
     private displayMod: Genero[];
     private database:lowdb.LowdbSync<schemaGenero>; 
     constructor(public coleccion: Genero[]) {
-        this.database = lowdb(new FileSync("db_generos.json"));
+        this.database = lowdb(new FileSync("dataBase/db_generos.json"));
         if (this.database.has("generos").value()) {
             let dbItems = this.database.get("generos").value();
             dbItems.forEach(item => this.coleccion.push(new Genero(item.nombre, item.grupos, item.artistas, item.albumes, item.canciones)));

@@ -48,7 +48,7 @@ export class JsonAlbumCollection {
     private displayMod: Album[];
     private database:lowdb.LowdbSync<schemaAlbum>; 
     constructor(public coleccion: Album[]) {
-        this.database = lowdb(new FileSync("db_albumes.json"));
+        this.database = lowdb(new FileSync("dataBase/db_albumes.json"));
         if (this.database.has("albumes").value()) {
             let dbItems = this.database.get("albumes").value();
             dbItems.forEach(item => this.coleccion.push(new Album(item.nombre, item.autor, item.año, item.generos, item.canciones)));

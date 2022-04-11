@@ -1,0 +1,11 @@
+{
+    "artistas": [
+        {
+            "nombre": "Alone",
+            "grupos": [],
+            "generos": ["Pop", "Electronica"],
+            "albumes": [],
+            "canciones": ["Alone"]
+        }
+    ]
+}
