@@ -3,7 +3,10 @@
     {
       "nombre": "Alone",
       "autor": "Alan Walker",
-      "generos": ["Pop", "Electronica"],
+      "generos": [
+        "Pop",
+        "Electronica"
+      ],
       "duracion": "2:45",
       "single": true,
       "reproducciones": 1200000000
@@ -11,10 +14,22 @@
     {
       "nombre": "Enemy",
       "autor": "Imagine Dragons",
-      "generos": ["Pop"],
+      "generos": [
+        "Pop"
+      ],
       "duracion": "3:33",
       "single": false,
       "reproducciones": 150000000
+    },
+    {
+      "nombre": "Buleria",
+      "autor": "Bisbal",
+      "generos": [
+        "Pop"
+      ],
+      "duracion": "2:10",
+      "single": true,
+      "reproducciones": 50000
     }
   ]
 }
