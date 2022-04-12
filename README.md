@@ -1,11 +1,12 @@
 # [DSI] Práctica 7 - Digitalizando la colección de música de los abuelos - GRUPO Q
 
 <p align="center">
-  <a href='https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q?branch=master'>
-    <img src='https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/badge.svg?branch=master' alt='Coverage Status' />
-  <a href="https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/node.js.yml">
-    <img alt="Tests" src="https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/node.js.yml/badge.svg">
-  </a>
+    <a href="https://coveralls.io/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q?branch=master">
+        <img alt="Coverage Status" src="https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/badge.svg?branch=master">
+    </a>
+    <a href='https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/node.js.yml'>
+        <img src='https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/node.js.yml/badge.svg' alt='Tests' />
+    </a>
 </p>
 
 ### Componentes del grupo que han realizado el proyecto:
