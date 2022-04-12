@@ -78,12 +78,12 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
     }
     deleteCancion(n: string) {
       this.database.get("canciones").remove({nombre: n}).write();
-      this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
+      this.coleccion = this.coleccion.filter(element => {element.getNombre() !== n});
     }
     deleteCancionesVector(cs: string[]) {
       cs.forEach(e => {
         this.database.get("canciones").remove({nombre: e}).write();
-        this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
+        this.coleccion = this.coleccion.filter(buenas => {buenas.getNombre() !== e});
       });
     }
     getCancion(n: number): Cancion {
@@ -105,20 +105,36 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
   }
 
   // Interfaces
-  ordSingles(): Cancion[] {
-    this.displayMod = this.coleccion.filter((e) => {e.getSingle() == true});
+  ordSingles(s: boolean): Cancion[] {
+    if (s) {
+      this.displayMod = [];
+      this.coleccion.forEach((e) => {
+        if (e.getSingle() == true) {
+          this.displayMod.push(e);
+        }
+      });
+    } else {
+      this.displayMod = this.coleccion;
+    }
     return this.displayMod;
   }
   ordReproducciones(asc: boolean): Cancion[] {
+    this.displayMod = this.coleccion;
     if (asc) {
-      this.displayMod = this.coleccion.sort((a,b) => a.getReproducciones() - b.getReproducciones());
+      this.displayMod.sort((a, b) => a.getReproducciones() - b.getReproducciones());
     } else {
-      this.displayMod = this.coleccion.sort((a,b) => a.getReproducciones() + b.getReproducciones());
+      this.displayMod.sort((a, b) => b.getReproducciones() - a.getReproducciones());
     }
     return this.displayMod;
   }
   ordAlfabeticoTitulo(asc: boolean): Cancion[] {
-    return [];
+    this.displayMod = this.coleccion;
+    if (asc) {
+      this.displayMod.sort((a, b) => a.getNombre().localeCompare(b.getNombre()));
+    } else {
+      this.displayMod.sort((a, b) => b.getNombre().localeCompare(a.getNombre()));
+    }
+    return this.displayMod;
   }
   displayCanciones() {
     console.log('──────────────────────────');

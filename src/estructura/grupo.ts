@@ -67,12 +67,12 @@ export class JsonGrupoCollection {
   }
   deleteGrupo(n: string) {
       this.database.get("grupos").remove({nombre: n}).write();
-      this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
+      this.coleccion = this.coleccion.filter(element => { element.getNombre() !== n});
     }
     deleteGrupoVector(gs: string[]) {
       gs.forEach(e => {
         this.database.get("grupos").remove({nombre: e}).write();
-        this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
+        this.coleccion = this.coleccion.filter(buenas => { buenas.getNombre() !== e});
       });
     }
     getGrupo(n: number): Grupo {
