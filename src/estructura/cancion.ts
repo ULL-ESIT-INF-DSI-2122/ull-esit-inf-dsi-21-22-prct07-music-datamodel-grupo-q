@@ -109,8 +109,13 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
     this.displayMod = this.coleccion.filter((e) => {e.getSingle() == true});
     return this.displayMod;
   }
-  ordRepros(asc: boolean): Cancion[] {
-    return [];
+  ordReproducciones(asc: boolean): Cancion[] {
+    if (asc) {
+      this.displayMod = this.coleccion.sort((a,b) => a.getReproducciones() - b.getReproducciones());
+    } else {
+      this.displayMod = this.coleccion.sort((a,b) => a.getReproducciones() + b.getReproducciones());
+    }
+    return this.displayMod;
   }
   ordAlfabeticoTitulo(asc: boolean): Cancion[] {
     return [];

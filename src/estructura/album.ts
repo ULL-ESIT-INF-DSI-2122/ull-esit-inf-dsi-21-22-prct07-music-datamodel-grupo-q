@@ -1,6 +1,7 @@
 import lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import { schemaAlbum } from "./schema";
+import {AlbumOrdenable, CommonOrdenable} from "../Interfaces/BaseInterface";
 
 export class Album {
     constructor(
@@ -44,7 +45,7 @@ export class Album {
     }
 }
 
-export class JsonAlbumCollection {
+export class JsonAlbumCollection implements CommonOrdenable<Album>{
     private displayMod: Album[];
     private database:lowdb.LowdbSync<schemaAlbum>; 
     constructor(public coleccion: Album[]) {
@@ -85,5 +86,8 @@ export class JsonAlbumCollection {
       return this.coleccion.find((element) => {
         element.getNombre() === n;
       });
+    }
+    ordReproducciones(asc: boolean): Album[] {
+        return [];
     }
 }

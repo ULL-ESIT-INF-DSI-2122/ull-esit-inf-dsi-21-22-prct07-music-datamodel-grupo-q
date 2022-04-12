@@ -1,6 +1,7 @@
 import lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import { schemaPlayList } from "./schema";
+import {PlaylistOrdenable, CommonOrdenable} from "../Interfaces/BaseInterface";
 
 export class PlayList {
     constructor(
@@ -36,7 +37,7 @@ export class PlayList {
     }
   }
 
-  export class JsonPlayListCollection {
+  export class JsonPlayListCollection implements CommonOrdenable<PlayList>{
     private displayMod: PlayList[];
     private database:lowdb.LowdbSync<schemaPlayList>; 
     constructor(public coleccion: PlayList[]) {
@@ -77,5 +78,8 @@ export class PlayList {
       return this.coleccion.find((element) => {
         element.getNombre() === n;
       });
+    }
+    ordReproducciones(asc: boolean): PlayList[] {
+      return [];
     }
 }
