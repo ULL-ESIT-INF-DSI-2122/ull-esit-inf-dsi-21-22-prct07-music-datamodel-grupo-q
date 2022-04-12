@@ -20,6 +20,276 @@
       "duracion": "3:33",
       "single": false,
       "reproducciones": 150000000
+    },
+    {
+      "nombre": "Good Vibrations",
+      "autor": "The Beach Boys",
+      "generos": [
+        "Pop"
+      ],
+      "duracion": "3:40",
+      "single": false,
+      "reproducciones": 120000000
+    },
+    {
+      "nombre": "Yesterday",
+      "autor": "The Beatles",
+      "generos": [
+        "Pop"
+      ],
+      "duracion": "3:50",
+      "single": false,
+      "reproducciones": 130000000
+    },
+    {
+      "nombre": "Thriller",
+      "autor": "Michael Jackson",
+      "generos": [
+        "Pop"
+      ],
+      "duracion": "3:26",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Bohemian Rhapsody",
+      "autor": "Queen",
+      "generos": [
+        "Pop"
+      ],
+      "duracion": "3:62",
+      "single": false,
+      "reproducciones": 130000000
+    },
+    {
+      "nombre": "Sittin on the Dock of the Bay",
+      "autor": "Otis Redding",
+      "generos": [
+        "Soul"
+      ],
+      "duracion": "3:44",
+      "single": false,
+      "reproducciones": 100000000
+    },
+    {
+      "nombre": "My Woman's Good To Me",
+      "autor": "George Benson",
+      "generos": [
+        "Soul"
+      ],
+      "duracion": "3:42",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Don't Play That Song For Me",
+      "autor": "Aretha Franklin",
+      "generos": [
+        "Soul"
+      ],
+      "duracion": "3:50",
+      "single": false,
+      "reproducciones": 121000000
+    },
+    {
+      "nombre": "Let's Stay Together",
+      "autor": "Al Green",
+      "generos": [
+        "Soul"
+      ],
+      "duracion": "3:56",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Please Stay (Once You Go Away)",
+      "autor": "Marvin Gaye",
+      "generos": [
+        "Soul"
+      ],
+      "duracion": "3:20",
+      "single": false,
+      "reproducciones": 100000000
+    },
+    {
+      "nombre": "(I Can't Get No) Satisfaction",
+      "autor": "The Rolling Stones",
+      "generos": [
+        "Rock"
+      ],
+      "duracion": "3:25",
+      "single": false,
+      "reproducciones": 140000000
+    },
+    {
+      "nombre": "Respect",
+      "autor": "Aretha Franklin",
+      "generos": [
+        "Rock"
+      ],
+      "duracion": "3:10",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Stairway to Heaven",
+      "autor": "Led Zeppelin",
+      "generos": [
+        "Rock"
+      ],
+      "duracion": "3:22",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Like a Rolling Stone",
+      "autor": "Bob Dylan",
+      "generos": [
+        "Rock"
+      ],
+      "duracion": "3:10",
+      "single": false,
+      "reproducciones": 100000000
+    },
+    {
+      "nombre": "Born to Run",
+      "autor": "Bruce Springsteen",
+      "generos": [
+        "Rock"
+      ],
+      "duracion": "3:35",
+      "single": false,
+      "reproducciones": 130000000
+    },
+    {
+      "nombre": "Hotel California",
+      "autor": "the Eagles",
+      "generos": [
+        "Rock"
+      ],
+      "duracion": "3:35",
+      "single": false,
+      "reproducciones": 130000000
+    },
+    {
+      "nombre": "Pequeña Serenata Nocturna",
+      "autor": "Mozart",
+      "generos": [
+        "Clasica"
+      ],
+      "duracion": "5:10",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Para Elisa",
+      "autor": "Beethoven",
+      "generos": [
+        "Clasica"
+      ],
+      "duracion": "4:10",
+      "single": false,
+      "reproducciones": 130000000
+    },
+    {
+      "nombre": "Obertura 1812",
+      "autor": "Tchaikovsky",
+      "generos": [
+        "Clasica"
+      ],
+      "duracion": "4:30",
+      "single": false,
+      "reproducciones": 120000000
+    },
+    {
+      "nombre": "Les Toreadors",
+      "autor": "Bizet",
+      "generos": [
+        "Clasica"
+      ],
+      "duracion": "4:10",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Sinfonía nº 5",
+      "autor": "Beethoven",
+      "generos": [
+        "Clasica"
+      ],
+      "duracion": "7:10",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "El Mesías",
+      "autor": "Handel",
+      "generos": [
+        "Clasica"
+      ],
+      "duracion": "4:20",
+      "single": false,
+      "reproducciones": 100000000
+    },
+    {
+      "nombre": "Kind of Blue",
+      "autor": "Miles Davis",
+      "generos": [
+        "Jazz"
+      ],
+      "duracion": "3:10",
+      "single": false,
+      "reproducciones": 100000000
+    },
+    {
+      "nombre": "Saxophone Colossus",
+      "autor": "Sonny Rollins",
+      "generos": [
+        "Jazz"
+      ],
+      "duracion": "3:10",
+      "single": false,
+      "reproducciones": 100000000
+    },
+    {
+      "nombre": "Hot Fives and Sevens",
+      "autor": "Louis Armstrong",
+      "generos": [
+        "Jazz"
+      ],
+      "duracion": "3:20",
+      "single": false,
+      "reproducciones": 100000000
+    },
+    {
+      "nombre": "Time Out",
+      "autor": "The Dave Brubeck Quartet",
+      "generos": [
+        "Jazz"
+      ],
+      "duracion": "3:10",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "A Love Supreme",
+      "autor": "John Coltrane",
+      "generos": [
+        "Jazz"
+      ],
+      "duracion": "3:10",
+      "single": false,
+      "reproducciones": 110000000
+    },
+    {
+      "nombre": "Brilliant Corners",
+      "autor": "Thelonious Monk",
+      "generos": [
+        "Jazz"
+      ],
+      "duracion": "3:10",
+      "single": false,
+      "reproducciones": 110000000
     }
   ]
 }

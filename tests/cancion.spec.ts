@@ -12,7 +12,6 @@ describe('Comprobar clase Cancion - Test', () => {
     it('Función deleteCancion() elimina una canción', () => {
       col.deleteCancion('Buleria');
     });
-    // mal
     it('Existe función deleteCancionesVector()', () => {
       col.deleteCancionesVector(['Buleria']);
     });
