@@ -1,25 +1,25 @@
 {
-    "canciones": [
-      {
-        "nombre": "Alone",
-        "autor": "Alan Walker",
-        "generos": [
-          "Pop",
-          "Electronica"
-        ],
-        "duracion": "2:45",
-        "single": true,
-        "reproducciones": 1200000000
-      },
-      {
-        "nombre": "Enemy",
-        "autor": "Imagine Dragons",
-        "generos": [
-          "Pop"
-        ],
-        "duracion": "3:33",
-        "single": false,
-        "reproducciones": 150000000
-      }
-    ]
-  }
+  "canciones": [
+    {
+      "nombre": "Alone",
+      "autor": "Alan Walker",
+      "generos": [
+        "Pop",
+        "Electronica"
+      ],
+      "duracion": "2:45",
+      "single": true,
+      "reproducciones": 1200000000
+    },
+    {
+      "nombre": "Enemy",
+      "autor": "Imagine Dragons",
+      "generos": [
+        "Pop"
+      ],
+      "duracion": "3:33",
+      "single": false,
+      "reproducciones": 150000000
+    }
+  ]
+}

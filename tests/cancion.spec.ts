@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import { Cancion, JsonCancionCollection } from '../src/estructura/cancion';
 
 let col = new JsonCancionCollection([]);
+
 describe('Comprobar clase Cancion - Test', () => {
   describe('Comprobar clase JsonCancionCollection', () => {
     it('Función addCancion() añade una canción', () => {
@@ -11,8 +12,9 @@ describe('Comprobar clase Cancion - Test', () => {
     it('Función deleteCancion() elimina una canción', () => {
       col.deleteCancion('Buleria');
     });
+    // mal
     it('Existe función deleteCancionesVector()', () => {
-      col.deleteCancionesVector([]);
+      col.deleteCancionesVector(['Buleria']);
     });
     it('Existe Función getCancion()', () => {
       expect(col.getCancion(0).getNombre()).to.eql('Alone');
@@ -20,27 +22,23 @@ describe('Comprobar clase Cancion - Test', () => {
     it('Existe función includesCancion()', () => {
       expect(col.includesCancion("Alone")).to.eql(true);
     });
-    it('Función getCancionByName() = Undefined', () => {
-      expect(col.getCancionByName("Enemy")).to.eql(undefined);
+    it('Existe Función getCancionByName()', () => {
+      expect(col.getCancionByName("Prueba")).to.eql(undefined);
     });
-    // it('Existe getCancionByName()', () => {
-    //   expect(col.getCancionByName("Enemy").getNombre()).to.eql('Enemy');
-    // });
     it('Existe función ordSingles()', () => {
-      // expect(col.ordSingles()).to.eql(undefined);
-      // console.log(col.ordSingles());
+      expect(col.ordSingles()).to.eql([]);
     });
-    it('Existe función ordRepros()', () => {
-      expect(col.ordReproducciones).to.exist;
+    it('Existe función ordReproducciones()', () => {
+      expect(col.ordReproducciones(true)).to.eql([]);
     });
     it('Existe función ordAlfabeticoTitulo()', () => {
-      expect(col.ordAlfabeticoTitulo).to.exist;
+      expect(col.ordAlfabeticoTitulo(true)).to.eql([]);
     });
     it('Existe función displayCanciones()', () => {
-      expect(col.displayCanciones).to.exist;
+      expect(col.displayCanciones()).to.not.be.null;
     });
     it('Existe función displayMode()', () => {
-      expect(col.displayMode).to.exist;
+      expect(col.displayMode()).to.not.be.null;
     });
   });
   describe('Atributos de la clase Cancion', () => {
@@ -87,10 +85,10 @@ describe('Comprobar clase Cancion - Test', () => {
       expect(col.getCancion(0).getReproducciones()).to.eql(1200000000);
     });
     it('Existe función printdata()', () => {
-      expect(col.getCancion(0).printData).to.exist;
+      expect(col.getCancion(0).printData()).to.not.be.null;
     });
     it('Existe función convertJSON()', () => {
-      expect(col.getCancion(0).convertJSON).to.exist;
+      expect(col.getCancion(0).convertJSON()).to.not.be.null;
     });
   });
 });

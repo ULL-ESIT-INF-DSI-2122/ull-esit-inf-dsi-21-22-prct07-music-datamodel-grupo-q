@@ -25,6 +25,7 @@
         "indent": "off",
         "padded-blocks": "off",
         "arrow-parens": "off",
-        "object-curly-spacing": "off"
+        "object-curly-spacing": "off",
+        "brace-style": "off"
     }
 }
