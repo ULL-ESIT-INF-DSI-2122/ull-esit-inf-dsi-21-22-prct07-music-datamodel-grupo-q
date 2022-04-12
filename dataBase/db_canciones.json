@@ -23,7 +23,7 @@
     },
     {
       "nombre": "Good Vibrations",
-      "autor": "The Beach Boys",
+      "autor": "Michael Jackson",
       "generos": [
         "Pop"
       ],
@@ -33,7 +33,7 @@
     },
     {
       "nombre": "Yesterday",
-      "autor": "The Beatles",
+      "autor": "Michael Jackson",
       "generos": [
         "Pop"
       ],
@@ -63,7 +63,7 @@
     },
     {
       "nombre": "Sittin on the Dock of the Bay",
-      "autor": "Otis Redding",
+      "autor": "Queen",
       "generos": [
         "Soul"
       ],
@@ -73,7 +73,7 @@
     },
     {
       "nombre": "My Woman's Good To Me",
-      "autor": "George Benson",
+      "autor": "Aretha Franklin",
       "generos": [
         "Soul"
       ],
@@ -93,7 +93,7 @@
     },
     {
       "nombre": "Let's Stay Together",
-      "autor": "Al Green",
+      "autor": "Aretha Franklin",
       "generos": [
         "Soul"
       ],
@@ -103,7 +103,7 @@
     },
     {
       "nombre": "Please Stay (Once You Go Away)",
-      "autor": "Marvin Gaye",
+      "autor": "The Rolling Stone",
       "generos": [
         "Soul"
       ],
@@ -123,7 +123,7 @@
     },
     {
       "nombre": "Respect",
-      "autor": "Aretha Franklin",
+      "autor": "The Rolling Stone",
       "generos": [
         "Rock"
       ],
@@ -133,7 +133,7 @@
     },
     {
       "nombre": "Stairway to Heaven",
-      "autor": "Led Zeppelin",
+      "autor": "Bruce Springsteen",
       "generos": [
         "Rock"
       ],
@@ -143,7 +143,7 @@
     },
     {
       "nombre": "Like a Rolling Stone",
-      "autor": "Bob Dylan",
+      "autor": "Bruce Springsteen",
       "generos": [
         "Rock"
       ],
@@ -163,7 +163,7 @@
     },
     {
       "nombre": "Hotel California",
-      "autor": "the Eagles",
+      "autor": "Bruce Springsteen",
       "generos": [
         "Rock"
       ],
@@ -173,7 +173,7 @@
     },
     {
       "nombre": "Pequeña Serenata Nocturna",
-      "autor": "Mozart",
+      "autor": "Beethoven",
       "generos": [
         "Clasica"
       ],
@@ -193,7 +193,7 @@
     },
     {
       "nombre": "Obertura 1812",
-      "autor": "Tchaikovsky",
+      "autor": "Beethoven",
       "generos": [
         "Clasica"
       ],
@@ -243,7 +243,7 @@
     },
     {
       "nombre": "Saxophone Colossus",
-      "autor": "Sonny Rollins",
+      "autor": "Thelonious Monk",
       "generos": [
         "Jazz"
       ],
