@@ -31,7 +31,7 @@ describe('Comprobar clase Cancion - Test', () => {
       // console.log(col.ordSingles());
     });
     it('Existe función ordRepros()', () => {
-      expect(col.ordRepros).to.exist;
+      expect(col.ordReproducciones).to.exist;
     });
     it('Existe función ordAlfabeticoTitulo()', () => {
       expect(col.ordAlfabeticoTitulo).to.exist;
