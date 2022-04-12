@@ -25,7 +25,7 @@ describe('Comprobar clase Cancion - Test', () => {
       expect(col.getCancionByName("Prueba")).to.eql(undefined);
     });
     it('Existe función ordSingles()', () => {
-      expect(col.ordSingles()).to.eql([]);
+      expect(col.ordSingles(true)).to.eql([]);
     });
     it('Existe función ordReproducciones()', () => {
       expect(col.ordReproducciones(true)).to.eql([]);

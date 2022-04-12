@@ -2,8 +2,7 @@ import lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import { schemaCancion } from "./schema";
 import {CancionOrdenable, CommonOrdenable} from "../Interfaces/BaseInterface";
-// import { Cancion } from "..";
-// import { Cancion } from "..";
+
 export class Cancion {
     constructor(
       private nombre_: string,
@@ -66,11 +65,11 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
     private displayMod: Cancion[];
     private database:lowdb.LowdbSync<schemaCancion>;
     constructor(public coleccion: Cancion[]) {
-        this.database = lowdb(new FileSync("data.json"));
+        this.database = lowdb(new FileSync("/home/usuario/Musica/dataBase/db_canciones.json"));
         if (this.database.has("canciones").value()) {
             let dbItems = this.database.get("canciones").value();
             dbItems.forEach(item => this.coleccion.push(new Cancion(item.nombre, item.autor, item.generos, item.duracion, item.single, item.reproducciones)));
-          } // Deberia hacer un else para crear la base o algo asi
+          } // Deberia hacer un else para crear la base
           this.displayMod = this.coleccion;
     }
     addCancion(n: string, a: string, g: string[], d: string, s: boolean, r: number) {
@@ -79,12 +78,12 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
     }
     deleteCancion(n: string) {
       this.database.get("canciones").remove({nombre: n}).write();
-      this.coleccion = this.coleccion.filter(element => {return element.getNombre() !== n});
+      this.coleccion = this.coleccion.filter(element => {element.getNombre() !== n});
     }
     deleteCancionesVector(cs: string[]) {
       cs.forEach(e => {
         this.database.get("canciones").remove({nombre: e}).write();
-        this.coleccion = this.coleccion.filter(buenas => {return buenas.getNombre() !== e});
+        this.coleccion = this.coleccion.filter(buenas => {buenas.getNombre() !== e});
       });
     }
     getCancion(n: number): Cancion {
@@ -106,27 +105,49 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
   }
 
   // Interfaces
-  ordSingles(): Cancion[] {
-    this.displayMod = this.coleccion.filter((e) => {e.getSingle() == true});
+  ordSingles(s: boolean): Cancion[] {
+    if (s) {
+      this.displayMod = [];
+      this.coleccion.forEach((e) => {
+        if (e.getSingle() == true) {
+          this.displayMod.push(e);
+        }
+      });
+    } else {
+      this.displayMod = this.coleccion;
+    }
     return this.displayMod;
   }
   ordReproducciones(asc: boolean): Cancion[] {
-    return [];
+    this.displayMod = this.coleccion;
+    if (asc) {
+      this.displayMod.sort((a, b) => a.getReproducciones() - b.getReproducciones());
+    } else {
+      this.displayMod.sort((a, b) => b.getReproducciones() - a.getReproducciones());
+    }
+    return this.displayMod;
   }
   ordAlfabeticoTitulo(asc: boolean): Cancion[] {
-    return [];
+    this.displayMod = this.coleccion;
+    if (asc) {
+      this.displayMod.sort((a, b) => a.getNombre().localeCompare(b.getNombre()));
+    } else {
+      this.displayMod.sort((a, b) => b.getNombre().localeCompare(a.getNombre()));
+    }
+    return this.displayMod;
   }
   displayCanciones() {
-    // console.log('──────────────────────────');
+    console.log('──────────────────────────');
     this.coleccion.forEach((cancion)=> {
       cancion.printData();
-      // console.log('──────────────────────────');
+      console.log('──────────────────────────');
     });
   }
   displayMode() {
-    // console.log('──────────────────────────');
-    this.displayMod.forEach((cancion)=> {cancion.printData();
-     // console.log('──────────────────────────');
+    console.log('──────────────────────────');
+    this.displayMod.forEach((cancion)=> {
+      cancion.printData();
+      console.log('──────────────────────────');
     });
   }
 }

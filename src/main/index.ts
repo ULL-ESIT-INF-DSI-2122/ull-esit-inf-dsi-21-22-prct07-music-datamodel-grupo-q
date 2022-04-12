@@ -14,6 +14,10 @@ function sleep(ms: number) {
 
 let onlySingles: boolean = false; // Al principio se muestran todos
 const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
+// const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
+// const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
+// const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
+// const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
 
 function promptDelete() {
   enum CDel {
@@ -153,7 +157,7 @@ function promptOrdenCancion() {
             case OrdenCancion.Repr:
             process.stdout.write('Ascendentemente?> ');
             const ascR: boolean = (scanf('%d') > 0)? true: false;
-              col.ordRepros(ascR);
+              col.ordReproducciones(ascR);
               promptList();
               break;
             case OrdenCancion.Alph:
