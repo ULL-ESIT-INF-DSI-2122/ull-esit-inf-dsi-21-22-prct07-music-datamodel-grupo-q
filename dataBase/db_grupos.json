@@ -2,10 +2,11 @@
     "grupos": [
         {
             "nombre": "Grupo 1",
-            "componentes": [" ", " "],
+            "componentes": ["comp1", "comp2"],
             "año": 2000,
-            "generos": [" ", " "],
-            "canciones": [" ", " "]
+            "generos": ["gen1", "gen2"],
+            "albumes": ["alb1", "alb2"],
+            "oyentesMensuales": 1000
         }
     ]
 }

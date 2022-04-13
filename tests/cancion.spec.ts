@@ -2,7 +2,7 @@ import 'mocha';
 import { expect } from 'chai';
 import { Cancion, JsonCancionCollection } from '../src/estructura/cancion';
 
-let col = new JsonCancionCollection([]);
+const col = new JsonCancionCollection([]);
 
 describe('Comprobar clase Cancion - Test', () => {
   describe('Comprobar clase JsonCancionCollection', () => {

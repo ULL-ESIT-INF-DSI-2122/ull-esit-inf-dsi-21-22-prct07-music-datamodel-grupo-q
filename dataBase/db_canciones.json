@@ -18,7 +18,7 @@
       ],
       "duracion": "4:44",
       "single": true,
-      "reproducciones": 67430 
+      "reproducciones": 67430
     },
     {
       "nombre": "La Mangueleña",
@@ -48,7 +48,7 @@
       ],
       "duracion": "4:33",
       "single": true,
-      "reproducciones": 2585538 
+      "reproducciones": 2585538
     },
     {
       "nombre": "Passion",
@@ -68,9 +68,9 @@
       ],
       "duracion": "3:57",
       "single": false,
-      "reproducciones": 14954363 
+      "reproducciones": 14954363
     },
-     {
+    {
       "nombre": "Jammin",
       "autor": "Bob Marley",
       "generos": [
@@ -141,7 +141,7 @@
       "single": true,
       "reproducciones": 7380657
     },
-     {
+    {
       "nombre": "Al Filo",
       "autor": "FERNANDOCOSTA",
       "generos": [
@@ -181,7 +181,7 @@
       "single": false,
       "reproducciones": 4053282
     },
-     {
+    {
       "nombre": "VORTEX",
       "autor": "EVVORTEX",
       "generos": [

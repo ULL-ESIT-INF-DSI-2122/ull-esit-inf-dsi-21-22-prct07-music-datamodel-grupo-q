@@ -48,6 +48,23 @@ export class Grupo {
   setOyentes(oyentes: number): void {
       this.oyentesMensuales_ = oyentes;
   }
+
+  printData() {
+    console.log(this.nombre_);
+    console.log('Componentes:');
+    this.componentes_.forEach((c) => {
+      console.log(c);
+    });
+    console.log('Generos:');
+    this.generos_.forEach((g) => {
+      console.log(g);
+    });
+    console.log('Albumes:');
+    this.albumes_.forEach((a) => {
+      console.log(a);
+    });
+    console.log('Oyentes mensuales: ', this.oyentesMensuales_);
+  }
 }
 
 export class JsonGrupoCollection {
@@ -67,29 +84,40 @@ export class JsonGrupoCollection {
   }
   deleteGrupo(n: string) {
       this.database.get("grupos").remove({nombre: n}).write();
-      this.coleccion = this.coleccion.filter(element => { element.getNombre() !== n});
-    }
-    deleteGrupoVector(gs: string[]) {
-      gs.forEach(e => {
-        this.database.get("grupos").remove({nombre: e}).write();
-        this.coleccion = this.coleccion.filter(buenas => { buenas.getNombre() !== e});
+      this.coleccion = this.coleccion.filter(element => {
+        element.getNombre() !== n;
       });
     }
-    getGrupo(n: number): Grupo {
-        return this.coleccion[n];
-    }
-    includesGrupo(n: string): boolean {
-      let isIn: boolean = false;
-      this.coleccion.forEach(element => {
-        if (element.getNombre() === n) {
-          isIn = true;
-        }
+  deleteGrupoVector(gs: string[]) {
+    gs.forEach(e => {
+      this.database.get("grupos").remove({nombre: e}).write();
+      this.coleccion = this.coleccion.filter(buenas => {
+        buenas.getNombre() !== e;
       });
-      return isIn;
+    });
+  }
+  getGrupo(n: number): Grupo {
+      return this.coleccion[n];
+  }
+  includesGrupo(n: string): boolean {
+    let isIn: boolean = false;
+    this.coleccion.forEach(element => {
+      if (element.getNombre() === n) {
+        isIn = true;
+      }
+    });
+    return isIn;
   }
   getGrupoByName(n: string): Grupo | undefined {
     return this.coleccion.find((element) => {
       element.getNombre() === n;
+    });
+  }
+  displayGrupos() {
+    console.log('──────────────────────────');
+    this.coleccion.forEach((grupo)=> {
+      grupo.printData();
+      console.log('──────────────────────────');
     });
   }
 }

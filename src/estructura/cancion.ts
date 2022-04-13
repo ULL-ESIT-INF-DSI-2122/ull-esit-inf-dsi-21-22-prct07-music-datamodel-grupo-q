@@ -78,12 +78,16 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
     }
     deleteCancion(n: string) {
       this.database.get("canciones").remove({nombre: n}).write();
-      this.coleccion = this.coleccion.filter(element => {element.getNombre() !== n});
+      this.coleccion = this.coleccion.filter(element => {
+        element.getNombre() !== n;
+      });
     }
     deleteCancionesVector(cs: string[]) {
       cs.forEach(e => {
         this.database.get("canciones").remove({nombre: e}).write();
-        this.coleccion = this.coleccion.filter(buenas => {buenas.getNombre() !== e});
+        this.coleccion = this.coleccion.filter(buenas => {
+          buenas.getNombre() !== e;
+        });
       });
     }
     getCancion(n: number): Cancion {
