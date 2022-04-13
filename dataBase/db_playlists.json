@@ -1,10 +1,22 @@
 {
     "playlists": [
         {
-            "nombre": " ",
-            "canciones": [" ", " "],
-            "duracion": " ",
-            "generos": [" ", " "]
+            "nombre": "PlayList 1",
+            "canciones": ["Motomami", "Saoko"],
+            "duracion": "4:01",
+            "generos": ["Pop", "Pop"]
+        },
+        {
+            "nombre": "PlayList 2",
+            "canciones": ["Alone", "Enemy"],
+            "duracion": "4:10",
+            "generos": ["Pop", "Pop"]
+        },
+        {
+            "nombre": "PlayList 3",
+            "canciones": ["Time Out", "Respect"],
+            "duracion": "4:10",
+            "generos": ["Soul", "Rock"]
         }
     ]
 }

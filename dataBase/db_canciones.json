@@ -1,6 +1,6 @@
 {
   "canciones": [
-     {
+    {
       "nombre": "VORTEX",
       "autor": "EVVORTEX",
       "generos": [
@@ -28,7 +28,7 @@
       ],
       "duracion": "2:20",
       "single": false,
-      "reproducciones": 19902665 
+      "reproducciones": 19902665
     },
     {
       "nombre": "6IXSpeed",
@@ -90,7 +90,7 @@
       "single": false,
       "reproducciones": 32922
     },
-     {
+    {
       "nombre": "Codeine",
       "autor": "Mandragora",
       "generos": [
