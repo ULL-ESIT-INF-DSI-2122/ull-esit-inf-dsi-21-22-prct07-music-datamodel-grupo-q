@@ -1,11 +1,40 @@
 {
     "grupos": [
         {
-            "nombre": "Grupo 1",
-            "componentes": [" ", " "],
-            "año": 2000,
-            "generos": [" ", " "],
-            "canciones": [" ", " "]
+            "nombre": "Grupo 5: UB40",
+            "componentes": ["Jimmy Brown", "Duncan Campbell", "Robin Campbell", "Earl Falconer", "Norman Hassan", "Brian Travers", "Tony Mullings],
+            "año": 1978,
+            "generos": ["Reggae", "pop", "dub"],
+            "canciones": ["Red Red Wine", "Sweet Sensation"]
+        },
+         {
+            "nombre": "Grupo 4: The Rolling Stones",
+            "componentes": ["Mick Jagger", "Keith Richards", "Ronnie Wood"],
+            "año": 1962,
+            "generos": ["Rock", "blues"],
+            "canciones": ["Heart of Stone", "Get off my cloud"]
+        },
+        {
+            "nombre": "Grupo 3: Led Zeppelin",
+            "componentes": ["Jimmy Page", "Robert Plant", "John Paul Jones", "John Bonham"],
+            "año": 1968,
+            "generos": ["Soul", "Rock progresivo", "Rock and Roll"],
+            "canciones": ["Stairway to heaven", "Message in a bottle", "Black dog"]
+        },
+        {
+            "nombre": "Grupo 2: AYAX Y PROK",
+            "componentes": ["Ayax", "Adrián"],
+            "año": 2013,
+            "generos": ["Rap", "Rap Crudo", "Trap"],
+            "canciones": ["Fresas con nata", "Dama de la guadaña"]
+        },
+        {
+            "nombre": "Grupo 1: The Eagles",
+            "componentes": ["Don Henley", "Joe Walsh", "Timothy B.", "SchmitGlenn Frey", "Randy Meisner"],
+            "año": 1971,
+            "generos": ["Pop Rock", "Country"],
+            "canciones": ["Hotel California", "Peaceful easy feeling"]
         }
+        
     ]
 }
