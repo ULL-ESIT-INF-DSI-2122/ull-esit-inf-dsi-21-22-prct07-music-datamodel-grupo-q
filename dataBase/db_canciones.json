@@ -1,6 +1,66 @@
 {
   "canciones": [
     {
+      "nombre": "Te Quiero",
+      "autor": "David Tort",
+      "generos": [
+        "Techno"
+      ],
+      "duracion": "6:01",
+      "single": true,
+      "reproducciones": 22697
+    },
+    {
+      "nombre": "Águila del monte",
+      "autor": "David Novaceck",
+      "generos": [
+        "Techno"
+      ],
+      "duracion": "4:44",
+      "single": true,
+      "reproducciones": 67430 
+    },
+    {
+      "nombre": "La Mangueleña",
+      "autor": "Gianni Romano",
+      "generos": [
+        "Techno"
+      ],
+      "duracion": "6:07",
+      "single": true,
+      "reproducciones": 6979091
+    },
+    {
+      "nombre": "Machine",
+      "autor": "INNDRIVE",
+      "generos": [
+        "Techno"
+      ],
+      "duracion": "3:54",
+      "single": true,
+      "reproducciones": 1486177
+    },
+    {
+      "nombre": "Smoking i wait",
+      "autor": "Paskman & Sara montiel",
+      "generos": [
+        "Techno"
+      ],
+      "duracion": "4:33",
+      "single": true,
+      "reproducciones": 2585538 
+    },
+    {
+      "nombre": "Passion",
+      "autor": "Wade",
+      "generos": [
+        "Techno"
+      ],
+      "duracion": "2:56",
+      "single": true,
+      "reproducciones": 992984
+    },
+    {
       "nombre": "Could you be loved",
       "autor": "Bob Marley",
       "generos": [
