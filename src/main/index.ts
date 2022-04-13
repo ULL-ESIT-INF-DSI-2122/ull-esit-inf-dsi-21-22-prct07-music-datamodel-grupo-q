@@ -1,17 +1,9 @@
 import * as inquirer from 'inquirer';
-import { Genero } from '../estructura/genero';
-import * as can from './cancionInq';
-import * as gru from './grupoInq';
 let scanf = require('scanf');
 
-
-// Mas adelante buscare la manera de que PromptUser reciba
-// los datos sin ser una variable global
-
-// const grupoCol: gru.JsonGrupoCollection = new gru.JsonGrupoCollection([]);
-// const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
-// const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
-// const col: can.JsonCancionCollection = new can.JsonCancionCollection([]);
+// Pantallas de cada uno de los datos almacenados
+import * as can from './cancionInq';
+import * as gru from './grupoInq';
 
 export function mainPrompt(): void {
   let quit: boolean = false;

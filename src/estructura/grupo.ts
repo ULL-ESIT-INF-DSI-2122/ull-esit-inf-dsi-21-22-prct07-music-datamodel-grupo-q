@@ -53,15 +53,15 @@ export class Grupo {
     console.log(this.nombre_);
     console.log('Componentes:');
     this.componentes_.forEach((c) => {
-      console.log(c);
+      console.log('   ', c);
     });
     console.log('Generos:');
     this.generos_.forEach((g) => {
-      console.log(g);
+      console.log('   ', g);
     });
     console.log('Albumes:');
     this.albumes_.forEach((a) => {
-      console.log(a);
+      console.log('   ', a);
     });
     console.log('Oyentes mensuales: ', this.oyentesMensuales_);
   }
