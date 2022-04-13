@@ -208,13 +208,8 @@
         "Phonk"
       ],
       "duracion": "2:20",
-<<<<<<< HEAD
       "single": false,
       "reproducciones": 19902665
-=======
-      "single": true,
-      "reproducciones": 19902665 
->>>>>>> f630c55fc7cc3f12e8350651dd8925a0dad9de86
     },
     {
       "nombre": "6IXSpeed",
