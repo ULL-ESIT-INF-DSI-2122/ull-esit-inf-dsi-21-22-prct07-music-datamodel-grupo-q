@@ -1,5 +1,55 @@
 {
   "canciones": [
+     {
+      "nombre": "VORTEX",
+      "autor": "EVVORTEX",
+      "generos": [
+        "Phonk"
+      ],
+      "duracion": "2:20",
+      "single": false,
+      "reproducciones": 4150643
+    },
+    {
+      "nombre": "HORIZON",
+      "autor": "EVVORTEX",
+      "generos": [
+        "Phonk"
+      ],
+      "duracion": "3:12",
+      "single": false,
+      "reproducciones": 6230948
+    },
+    {
+      "nombre": "INCOMING",
+      "autor": "MC ORSEN",
+      "generos": [
+        "Phonk"
+      ],
+      "duracion": "2:20",
+      "single": false,
+      "reproducciones": 19902665 
+    },
+    {
+      "nombre": "6IXSpeed",
+      "autor": "7oh2",
+      "generos": [
+        "Phonk"
+      ],
+      "duracion": "2:29",
+      "single": false,
+      "reproducciones": 8794676
+    },
+    {
+      "nombre": "North Memphis",
+      "autor": "Pharmacist",
+      "generos": [
+        "Phonk"
+      ],
+      "duracion": "2:16",
+      "single": false,
+      "reproducciones": 32218357
+    },
     {
       "nombre": "Sahara",
       "autor": "Hensonn",
