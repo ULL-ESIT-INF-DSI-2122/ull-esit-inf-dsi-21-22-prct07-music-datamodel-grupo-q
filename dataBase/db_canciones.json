@@ -1,6 +1,76 @@
 {
   "canciones": [
     {
+      "nombre": "Sahara",
+      "autor": "Hensonn",
+      "generos": [
+        "Phonk"
+      ],
+      "duracion": "2:51",
+      "single": false,
+      "reproducciones": 8790418
+    },
+    {
+      "nombre": "Oasis",
+      "autor": "Sajanka",
+      "generos": [
+        "Psytrance"
+      ],
+      "duracion": "6:45",
+      "single": false,
+      "reproducciones": 1057092
+    },
+    {
+      "nombre": "Deep jungle walk",
+      "autor": "Astrix",
+      "generos": [
+        "Psytrance"
+      ],
+      "duracion": "9:15",
+      "single": false,
+      "reproducciones": 65300574
+    },
+    {
+      "nombre": "Dream",
+      "autor": "Kors",
+      "generos": [
+        "Psytrance"
+      ],
+      "duracion": "6:43",
+      "single": false,
+      "reproducciones": 32922
+    },
+     {
+      "nombre": "Codeine",
+      "autor": "Mandragora",
+      "generos": [
+        "Psytrance"
+      ],
+      "duracion": "5:37",
+      "single": false,
+      "reproducciones": 16285068
+    },
+    {
+      "nombre": "Free Tíbet Vini vici",
+      "autor": "Hilight Tribe",
+      "generos": [
+        "Psytrance"
+      ],
+      "duracion": "8:09",
+      "single": false,
+      "reproducciones": 127245041
+    },
+    {
+      "nombre": "Sem Voce Sou Ninguem",
+      "autor": "Mandragora",
+      "generos": [
+        "Psytrance"
+      ],
+      "duracion": "4:12",
+      "single": false,
+      "reproducciones": 8469369
+    },
+    {
       "nombre": "Alone",
       "autor": "Alan Walker",
       "generos": [
