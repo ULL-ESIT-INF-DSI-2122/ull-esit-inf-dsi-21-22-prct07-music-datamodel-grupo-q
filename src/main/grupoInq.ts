@@ -26,10 +26,10 @@ export function promptMod() {
     Quit = "Salir"
   }
   console.clear();
-  inquirer.prompt({ type: "list", name: "ModCancion", message: "Modificar Canciones:",
+  inquirer.prompt({ type: "list", name: "Modgru", message: "Modificar Canciones:",
                     choices: Object.values(CMod)})
       .then(answers => {
-        switch (answers["ModCancion"]) {
+        switch (answers["ModGru"]) {
           case CMod.Mod:
 
             process.stdout.write('Nombre> ');
@@ -54,6 +54,7 @@ export function promptMod() {
               gruCol.addGrupo(n, c, d, g, al, o);
             } else {
               console.log(n, ' no esta guardada.');
+              console.log('Pulse cualquier tecla para continuar.');
               scanf('%s');
             }
             promptUser();

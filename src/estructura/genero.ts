@@ -3,45 +3,65 @@ import FileSync from "lowdb/adapters/FileSync";
 import { schemaGenero } from "./schema";
 
 export class Genero {
-    constructor(
-      private nombre_: string,
-      private grupos_: string[], /* hay que hacer una interfaz generica para no usar union de tipos*/
-      private artistas_: string[],
-      private albumes_: string[],
-      private canciones_: string[]) {}
+  constructor(
+    private nombre_: string,
+    private grupos_: string[], /* hay que hacer una interfaz generica para no usar union de tipos*/
+    private artistas_: string[],
+    private albumes_: string[],
+    private canciones_: string[]) {}
 
 
-    getNombre(): string {
-        return this.nombre_;
-    }
-    getGrupos(): string[] {
-        return this.grupos_;
-    }
-    getArtistas(): string[] {
-        return this.artistas_;
-    }
-    getAlbumes(): string[] {
-        return this.albumes_;
-    }
-    getCanciones(): string[] {
-        return this.canciones_;
-    }
-    setNombre(nombre: string): void {
-        this.nombre_ = nombre;
-    }
-    setGrupos(grupos: string[]): void {
-        this.grupos_ = grupos;
-    }
-    setArtistas(artistas: string[]): void {
-        this.artistas_ = artistas;
-    }
-    setAlbumes(albumes: string[]): void {
-        this.albumes_ = albumes;
-    }
-    setCanciones(canciones: string[]): void {
-        this.canciones_ = canciones;
-    }
+  getNombre(): string {
+      return this.nombre_;
   }
+  getGrupos(): string[] {
+      return this.grupos_;
+  }
+  getArtistas(): string[] {
+      return this.artistas_;
+  }
+  getAlbumes(): string[] {
+      return this.albumes_;
+  }
+  getCanciones(): string[] {
+      return this.canciones_;
+  }
+  setNombre(nombre: string): void {
+      this.nombre_ = nombre;
+  }
+  setGrupos(grupos: string[]): void {
+      this.grupos_ = grupos;
+  }
+  setArtistas(artistas: string[]): void {
+      this.artistas_ = artistas;
+  }
+  setAlbumes(albumes: string[]): void {
+      this.albumes_ = albumes;
+  }
+  setCanciones(canciones: string[]): void {
+      this.canciones_ = canciones;
+  }
+  
+  printData() {
+    console.log(this.nombre_);
+    console.log('Componentes:');
+    this.grupos_.forEach((c) => {
+      console.log('   ', c);
+    });
+    console.log('Generos:');
+    this.artistas_.forEach((g) => {
+      console.log('   ', g);
+    });
+    console.log('Albumes:');
+    this.albumes_.forEach((a) => {
+      console.log('   ', a);
+    });
+    console.log('Canciones:');
+    this.canciones_.forEach((a) => {
+      console.log('   ', a);
+    });
+  }
+}
 
 export class JsonGeneroCollection {
     private displayMod: Genero[];
@@ -83,6 +103,13 @@ export class JsonGeneroCollection {
     getGeneroByName(n: string): Genero | undefined {
       return this.coleccion.find((element) => {
         element.getNombre() === n;
+      });
+    }
+    displayGeneros() {
+      console.log('──────────────────────────');
+      this.coleccion.forEach((genero)=> {
+        genero.printData();
+        console.log('──────────────────────────');
       });
     }
 }

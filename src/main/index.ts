@@ -4,6 +4,7 @@ let scanf = require('scanf');
 // Pantallas de cada uno de los datos almacenados
 import * as can from './cancionInq';
 import * as gru from './grupoInq';
+import * as gen from './generoInq';
 
 export function mainPrompt(): void {
   let quit: boolean = false;
@@ -32,6 +33,7 @@ export function mainPrompt(): void {
         case Comandos.alb:
             break;
         case Comandos.gen:
+          gen.promptUser();
           break;
         case Comandos.pla:
           break;
