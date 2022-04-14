@@ -22,5 +22,5 @@ export type schemaArtista = {
 };
 
 export type schemaPlayList = {
-    playlists: {nombre: string, canciones: string[], duracion: string, generos: string[]}[]
+    playlists: {nombre: string, autor: string, canciones: string[], duracion: string, generos: string[]}[]
 };
