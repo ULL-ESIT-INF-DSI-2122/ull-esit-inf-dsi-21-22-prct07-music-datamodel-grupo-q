@@ -65,7 +65,7 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
     private displayMod: Cancion[];
     private database:lowdb.LowdbSync<schemaCancion>;
     constructor(public coleccion: Cancion[]) {
-        this.database = lowdb(new FileSync("/home/usuario/Musica/dataBase/db_canciones.json"));
+        this.database = lowdb(new FileSync("dataBase/db_canciones.json"));
         if (this.database.has("canciones").value()) {
             let dbItems = this.database.get("canciones").value();
             dbItems.forEach(item => this.coleccion.push(new Cancion(item.nombre, item.autor, item.generos, item.duracion, item.single, item.reproducciones)));
