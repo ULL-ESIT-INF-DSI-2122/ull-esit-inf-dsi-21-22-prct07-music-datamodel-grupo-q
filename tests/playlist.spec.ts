@@ -51,35 +51,35 @@ describe('Comprobar clase PlayList - Test', () => {
   });
   describe('Atributos de la clase PlayList', () => {
     it('Existe un Getter de tipo "Nombre"', () => {
-      expect(grp.getPlayList(0).getNombre()).to.eql('PlayList 1');
+      expect(grp.getPlayList(0).getNombre()).to.eql('PlayList 2');
     });
     it('Existe un Getter de tipo "Autor"', () => {
       expect(grp.getPlayList(0).getAutor()).to.eql('Sistema');
     });
     it('Existe un Getter de tipo "Canciones"', () => {
-      expect(grp.getPlayList(0).getCanciones()).to.eql(["Motomami", "Saoko"]);
+      expect(grp.getPlayList(0).getCanciones()).to.eql(["Alone", "Enemy"]);
     });
     it('Existe un Getter de tipo "Duración"', () => {
-      expect(grp.getPlayList(0).getDuracion()).to.eql("4:01");
+      expect(grp.getPlayList(0).getDuracion()).to.eql("4:10");
     });
     it('Existe un Getter de tipo "Géneros"', () => {
       expect(grp.getPlayList(0).getGeneros()).to.eql(["Pop", "Pop"]);
     });
     it('Existe un Setter de tipo "Nombre"', () => {
       grp.getPlayList(0).setNombre("PlayList 1");
-      expect(grp.getPlayList(0).getNombre()).to.eql("PlayList 1");
+      expect(grp.getPlayList(0).getNombre()).to.eql("PlayList 2");
     });
     it('Existe un Setter de tipo "Componentes"', () => {
       grp.getPlayList(0).setAutor("Sistema");
       expect(grp.getPlayList(0).getAutor()).to.eql("Sistema");
     });
     it('Existe un Setter de tipo "Canciones"', () => {
-      grp.getPlayList(0).setCanciones(["Motomami", "Saoko"]);
-      expect(grp.getPlayList(0).getCanciones()).to.eql(["Motomami", "Saoko"]);
+      grp.getPlayList(0).setCanciones(["Alone", "Enemy"]);
+      expect(grp.getPlayList(0).getCanciones()).to.eql(["Alone", "Enemy"]);
     });
     it('Existe un Setter de tipo "Duración"', () => {
-      grp.getPlayList(0).setDuracion("4:01");
-      expect(grp.getPlayList(0).getDuracion()).to.eql("4:01");
+      grp.getPlayList(0).setDuracion("4:10");
+      expect(grp.getPlayList(0).getDuracion()).to.eql("4:10");
     });
     it('Existe un Setter de tipo "Géneros"', () => {
       grp.getPlayList(0).setGeneros(["Pop", "Pop"]);

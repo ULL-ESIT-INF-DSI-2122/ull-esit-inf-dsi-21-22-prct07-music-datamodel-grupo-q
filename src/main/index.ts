@@ -7,6 +7,8 @@ import * as gru from './grupoInq';
 import * as gen from './generoInq';
 import * as alb from './albumInq';
 import * as art from './artistaInq';
+import * as pla from './playlistInq';
+import * as ges from './gestorInq';
 
 export function mainPrompt(): void {
   let quit: boolean = false;
@@ -17,6 +19,7 @@ export function mainPrompt(): void {
     gen = "Generos",
     art = "Artista",
     pla = "Playlists",
+    Ges = "Gestor de Playlist",
     Quit = "Quit"
   }
   console.clear();
@@ -43,6 +46,10 @@ export function mainPrompt(): void {
           art.promptUser();
           break;
         case Comandos.pla:
+          pla.promptUser();
+          break;
+        case Comandos.Ges:
+          ges.promptUser();
           break;
         case Comandos.Quit:
           quit = true;

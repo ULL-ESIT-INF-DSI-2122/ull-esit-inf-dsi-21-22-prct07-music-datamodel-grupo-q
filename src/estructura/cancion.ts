@@ -3,6 +3,9 @@ import FileSync from "lowdb/adapters/FileSync";
 import { schemaCancion } from "./schema";
 import {CancionOrdenable, CommonOrdenable} from "../Interfaces/BaseInterface";
 
+/**
+ * Clase que representa una canción
+ */
 export class Cancion {
     constructor(
       private nombre_: string,
@@ -13,9 +16,9 @@ export class Cancion {
       private reproducciones_: number) {}
 
     getNombre(): string {
-        return this.nombre_;
+      return this.nombre_;
     }
-    public getAutor(): string {
+    getAutor(): string {
         return this.autor_;
     }
     getGeneros(): string[] {
@@ -30,7 +33,6 @@ export class Cancion {
     getReproducciones(): number {
         return this.reproducciones_;
     }
-
     setNombre(nombre: string): void {
         this.nombre_ = nombre;
     }
@@ -103,9 +105,7 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
       return isIn;
   }
   getCancionByName(n: string): Cancion | undefined {
-    return this.coleccion.find((element) => {
-      element.getNombre() === n;
-    });
+    return this.coleccion.find(e => e.getNombre() === n);
   }
 
   // Interfaces
