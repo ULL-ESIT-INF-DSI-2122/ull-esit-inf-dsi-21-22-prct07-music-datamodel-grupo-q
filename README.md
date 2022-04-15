@@ -10,8 +10,8 @@
     <a href='https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q'>
         <img src='https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q&metric=alert_status' alt='Sonar Cloud' />
     </a>
-        <a href='https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/pages/pages-build-deployment/badge.svg'>
-        <img src='https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/pages/pages-build-deployment' alt='Github Pages' />
+    <a href="https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/pages/pages-build-deployment">
+        <img alt="Github Pages" src="https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/pages/pages-build-deployment/badge.svg">
     </a>
 </p>
 
