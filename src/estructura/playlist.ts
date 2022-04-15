@@ -134,20 +134,11 @@ export class PlayList {
       }
       return this.displayMod;
     }
-<<<<<<< HEAD
     ordReproduccionesPlaylist(asc: boolean, n: number) {
       if (asc) {
         this.coleccion[n][1].sort((a, b) => a.getReproducciones() - b.getReproducciones());
       } else {
         this.coleccion[n][1].sort((a, b) => b.getReproducciones() - a.getReproducciones());
       }
-=======
-    displayOrdenedPlayList() {
-      console.log('──────────────────────────');
-      this.displayMod.forEach((album)=> {
-        album.printData();
-        console.log('──────────────────────────');
-      });
->>>>>>> 5b914e50beac05f532fa02ab9f74abf5b0ce846a
     }
 }
