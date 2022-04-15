@@ -25,6 +25,19 @@
         "Soul",
         "Rock"
       ]
+    },
+    {
+      "nombre": "PlayList 1",
+      "autor": "Sistema",
+      "canciones": [
+        "Motomami",
+        "Respect"
+      ],
+      "duracion": "6:10",
+      "generos": [
+        "Pop",
+        "Pop"
+      ]
     }
   ]
 }
