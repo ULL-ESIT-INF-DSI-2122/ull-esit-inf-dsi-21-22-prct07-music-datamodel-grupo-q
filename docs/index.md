@@ -14,7 +14,7 @@ A continuación se explicará la estructura y diseño de las clases e interfaces
 
 Para la representación de los diversos elementos se ha creado un clase para cada uno de estos con sus atributos correspondientes. Estas clases solo tienen métodos *getter* y setter*, además de uno para mostrar los todos lo atributos. Los constructores de las clases son los siguientes:
 
-```
+```Typescript
 export class PlayList {
     constructor(
       private nombre_: string,
@@ -94,7 +94,7 @@ Como se puede ver, el constructor de la clase `Artista` es diferente a los demá
 
 A la hora de usar *lowdb* para la persistencia de los datos, dado que funciona con archivos de extensión *.json*, debemos encontrar una manera de adaptar las clases para poder introducir y obtener datos de los archivos .json. Para ello se han creado unos tipos de datos que simulan la estructura de cada una de las clases, con los que se podrá adaptar los elementos de la clase para poder crear y leer elementos .json haciendo uso de *lowdb*:
 
-```
+```Typescript
 export type schemaCancion = {
     canciones: {nombre: string, autor: string, generos: string[], duracion: string, single: boolean, reproducciones: number}[]
 };
@@ -122,7 +122,7 @@ export type schemaPlayList = {
 
 De esta manera ya se pueden crear y leer de las clases en formato .json. No obstante necesitamos una clase que nos permita administrar la modificación de los datos dentro de los archivos .json y la persistencia de datos. Por ello cada uno uno de los elementos de la colección musical tendrá una clase que administre una colección de dicho elemento y se encargará de aplicar la persistencia de datos. Además con ella se realizará la gestión de cada elemento. Por ejemplo veamos la clase `JsonCancionCollection`, que se tratará de una colección de canciones:
 
-```
+```Typescript
 export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionOrdenable {
     private displayMod: Cancion[];
     private database:lowdb.LowdbSync<schemaCancion>;
@@ -155,7 +155,7 @@ Como se puede ver, la clase tendrá un atributo *lowdb*, el cual será de tipo d
 
 Los métodos `add` y `delete` permiten añadir y borrar elementos de la base de datos. Actuan primero sobre el fichero .json y eliminan el elemento coincidente de este o añada uno nuevo dependiendo del método. Luego realiza lo mismo sobre el atributo `collection`. Así se consigue que las modificaciones a la base de datos se realicen de manera persistente, ya que cuando se vaya a instanciar de nuevo una colección los elementos eliminados no estarán y los añadidos con anterioridad sí. También hay métodos para comprobar la existencia de un elemento o la obtención de este a partir del nombre:
 
-```
+```Typescript
 addCancion(n: string, a: string, g: string[], d: string, s: boolean, r: number) {
         this.coleccion.push(new Cancion(n, a, g, d, s, r));
         this.database.get("canciones").push({nombre: n, autor: a, generos: g, duracion: d, single: s, reproducciones: r}).write();
@@ -191,7 +191,7 @@ addCancion(n: string, a: string, g: string[], d: string, s: boolean, r: number) 
 
 Para la visualización de la información del elementos, se implementado una serie de interfaces con el objetivo de realizar las funcionalidades de ordenación de elementos. La interfaz `CommonOrdenable` se implementa para todas las colecciones deonde se puedan ordenar alfabéticamnete y las demás son específicas para una colección:
 
-```
+```Typescript
 export interface CommonOrdenable <T>{
   ordAlfabeticoTitulo(asc: boolean): T[];
 }
@@ -209,7 +209,7 @@ export interface CancionOrdenable{
 ```
 La implementación de las interfacces dentro de la clase `JsonCancionCollection` es la siguiente:
 
-```
+```Typescript
   ordSingles(s: boolean): Cancion[] {
     if (s) {
       this.displayMod = [];
