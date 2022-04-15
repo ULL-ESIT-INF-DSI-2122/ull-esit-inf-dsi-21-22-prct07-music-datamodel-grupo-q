@@ -36,6 +36,9 @@ describe('Comprobar clase PlayList - Test', () => {
     it('Existe función ordReproduccionesPlaylist()', () => {
       expect(ply.ordReproduccionesPlaylist(true, 1)).to.not.be.null;
     });
+    it('Existe función displayOrdenedPlayList()', () => {
+      expect(ply.displayOrdenedPlayList()).to.not.be.null;
+    });
     // it('Existe fuordReproduccionesPlaylistnción updateAlfPlaylistCan()', () => {
     //   expect(grp.updateAlfPlaylistCan(true, 1)).to.not.be.null;
     // });
@@ -87,6 +90,9 @@ describe('Comprobar clase PlayList - Test', () => {
     it('Existe un Setter de tipo "Géneros"', () => {
       ply.getPlayList(0).setGeneros(["Pop", "Pop"]);
       expect(ply.getPlayList(0).getGeneros()).to.eql(["Pop", "Pop"]);
+    });
+    it('Existe función printdata()', () => {
+      expect(ply.getPlayList(0).printData()).to.not.be.null;
     });
   });
 });
