@@ -179,6 +179,12 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
       });
     }
     /**
+     * @returns el vector que contiene todas las canciones
+     */
+    getCollection(): Cancion[] {
+      return this.coleccion;
+    }
+    /**
      * 
      * @param n indice de la cancion
      * @returns retorna una cancion

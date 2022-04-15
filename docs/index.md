@@ -377,6 +377,25 @@ registrados en la base de datos, al seleccionar uno o un conjunto de ellos, esta
 `answer` como vimos otras pantallas, y ahora guarda un vector de cadenas representando los nombres de los
 albumes a borrar. Simplemente resta invocar al metodo que borra los albumes indicados en un array de strings.
 
+## Clase Gestor
+Implementamos una clase `Gestor` que permita listar las `playlist` y ademas, acceder y
+modificar toda la informacion relacionada a cada playlist.
+
+```Typescript
+export class Gestor extends pla.JsonPlayListCollection {
+  private dbCanciones: can.JsonCancionCollection = new can.JsonCancionCollection([]);
+  private selectedPlaylist: string;
+  private actualPlaylistSongs: string[];
+  private user: string;
+  constructor() {
+    super([]);
+  }
+```
+La clase `Gestor` extiende a la clase interfaz de la base de datos de las `playlists`
+para añadir etas funcionalidades nuevas. Tiene acceso a la base de datos de `Canciones`
+para los metodos de añadir canciones y obtener los datos de las canciones de cada
+playlist.
+
 ## Test
 
 En nuestro caso, en un principio los test realizados no dieron problemas y funcionaban correctamente sin embargo, no sabemos el motivo por el cual dejaron de funcionar si haber cambiado nada. El problema aparentemente es que dentro del *describe* se percibe como si dentro del atributo *coleccion* de las colecciones no se hubieran instanciado los objetos correspondientes, de ahí que no se puedan utilizar sus métodos. Sin embargo si lo hacemos en un entorno distinto al *describe* funciona correctamente. Pensamos que puede que haya algún conflicto entre paquetes.
