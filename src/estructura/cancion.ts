@@ -3,6 +3,9 @@ import FileSync from "lowdb/adapters/FileSync";
 import { schemaCancion } from "./schema";
 import {CancionOrdenable, CommonOrdenable} from "../Interfaces/BaseInterface";
 
+/**
+ * Clase que representa una canción
+ */
 export class Cancion {
     constructor(
       private nombre_: string,
@@ -30,7 +33,6 @@ export class Cancion {
     getReproducciones(): number {
         return this.reproducciones_;
     }
-
     setNombre(nombre: string): void {
         this.nombre_ = nombre;
     }

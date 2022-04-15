@@ -120,7 +120,7 @@ export type schemaPlayList = {
 };
 ```
 
-De esta manera ya se pueden crear y leer de las clases en formato .json. No obstante necesitamos una clase que nos permita administrar la modificación de los datos dentro de los archivos .json y la persistencia de datos. Por ello cada uno uno de los elementos de la colección musical tendrá una clase que administre una colección de dicho elemento y se encargará de aplicar la persistencia de datos. Además con ella se realizará la gestión de cada elemento exceptuando las playlists. Por ejemplo veamos la clase `JsonCancionCollection`, que se tratará de una colección de canciones:
+De esta manera ya se pueden crear y leer de las clases en formato .json. No obstante necesitamos una clase que nos permita administrar la modificación de los datos dentro de los archivos .json y la persistencia de datos. Por ello cada uno uno de los elementos de la colección musical tendrá una clase que administre una colección de dicho elemento y se encargará de aplicar la persistencia de datos. Además con ella se realizará la gestión de cada elemento. Por ejemplo veamos la clase `JsonCancionCollection`, que se tratará de una colección de canciones:
 
 ```
 export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionOrdenable {
@@ -189,7 +189,7 @@ addCancion(n: string, a: string, g: string[], d: string, s: boolean, r: number) 
   }
 ```
 
-Para la visualización de la información del elementos, se implementado una serie de interfaces con el objetivo de realizar las funcionalidades de ordenación de elementos. La interfaz `CommonOrdenable` se implementa para todas las colecciones deonde se puedan obtener reproducciones y las demás son específicas para una colección:
+Para la visualización de la información del elementos, se implementado una serie de interfaces con el objetivo de realizar las funcionalidades de ordenación de elementos. La interfaz `CommonOrdenable` se implementa para todas las colecciones deonde se puedan ordenar alfabéticamnete y las demás son específicas para una colección:
 
 ```
 export interface CommonOrdenable <T>{
@@ -244,3 +244,13 @@ La implementación de las interfacces dentro de la clase `JsonCancionCollection`
 ```
 
 # Gestión e inquirer
+
+## Clase Gestor
+
+El objetivo de esta clase es 
+
+## Inquirer
+
+## Test
+
+En nuestro caso, en un principio los test realizados no dieron problemas y funcionaban correctamente sin embargo, no sabemos el motivo por el cual dejaron de funcionar si haber cambiado nada. El problema aparentemente es que dentro del *describe* se percibe como si dentro del atributo *coleccion* de las colecciones no se hubieran instanciado los objetos correspondientes, de ahí que no se puedan utilizar sus métodos. Sin embargo si lo hacemos en un entorno distinto al *describe* funciona correctamente. Pensamos que puede que haya algún conflicto entre paquetes.
