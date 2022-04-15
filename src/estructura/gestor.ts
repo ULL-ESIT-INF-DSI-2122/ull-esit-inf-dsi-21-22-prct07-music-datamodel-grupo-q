@@ -8,6 +8,7 @@ import * as pla from "./playlist";
 enum Att {Nombre, Autor, Canciones, Duracion, Generos};
 
 export class Gestor extends pla.JsonPlayListCollection {
+  private actualPlaylistSongs: string[];
   private user: string;
   constructor() {
     super([]);
@@ -89,42 +90,53 @@ export class Gestor extends pla.JsonPlayListCollection {
         break;
     }
   }
-  updateAlfPlaylistCan(asc: boolean, n: number) {
+  /**
+   * @param asc si la ordenacion es ascendente o no
+   * @param n playlist a ordenar
+   */
+  ordAlfPlaylistCan(asc: boolean, n: number) {
+    this.actualPlaylistSongs = this.coleccion[n][1];
     if (asc) {
-      this.coleccion[n][1].sort((a, b) => a.getNombre().localeCompare(b.getNombre()));
+      this.actualPlaylistSongs.sort((a, b) => a[0].localeCompare(b[0]));
     } else {
-      this.coleccion[n][1].sort((a, b) => b.getNombre().localeCompare(a.getNombre()));
+      this.actualPlaylistSongs.sort((a, b) => b[0].localeCompare(a[0]));
     }
   }
-  updateAlfPlaylistAut(asc: boolean, n: number) {
+  ordAlfPlaylistAut(asc: boolean, n: number) {
     if (asc) {
       this.coleccion[n][1].sort((a, b) => a.getAutor().localeCompare(b.getAutor()));
     } else {
       this.coleccion[n][1].sort((a, b) => b.getAutor().localeCompare(a.getAutor()));
     }
   }
-  updateAlfPlaylistGenero(asc: boolean, n: number) {
+  ordAlfPlaylistGenero(asc: boolean, n: number) {
     if (asc) {
       this.coleccion[n][1].sort((a, b) => a.getGeneros().localeCompare(b.getGeneros()));
     } else {
       this.coleccion[n][1].sort((a, b) => b.getGeneros().localeCompare(a.getGeneros()));
     }
   }
-  updatePlaylistAño(asc: boolean, n: number) {
+  ordPlaylistAño(asc: boolean, n: number) {
     if (asc) {
       this.coleccion[n][1].sort((a, b) => a.getAño() - b.getAño());
     } else {
       this.coleccion[n][1].sort((a, b) => b.getAño() - a.getAño());
     }
   }
-  updatePlaylistDur(asc: boolean, n: number) {
+  ordPlaylistDur(asc: boolean, n: number) {
     if (asc) {
       this.coleccion[n][1].sort((a, b) => a.getDuracion().localeCompare(b.getDuracion()));
     } else {
       this.coleccion[n][1].sort((a, b) => b.getDuracion().localeCompare(a.getDuracion()));
     }
   }
-
+  ordPlaylistNum(asc: boolean, n: number) {
+    if (asc) {
+      this.coleccion[n][1].sort((a, b) => a.getDuracion().localeCompare(b.getDuracion()));
+    } else {
+      this.coleccion[n][1].sort((a, b) => b.getDuracion().localeCompare(a.getDuracion()));
+    }
+  }
   ordReproduccionesPlaylist(asc: boolean, n: number) {
     if (asc) {
       this.coleccion[n][1].sort((a, b) => a.getReproducciones() - b.getReproducciones());
@@ -132,11 +144,14 @@ export class Gestor extends pla.JsonPlayListCollection {
       this.coleccion[n][1].sort((a, b) => b.getReproducciones() - a.getReproducciones());
     }
   }
-  updatePlaylistNum(asc: boolean, n: number) {
-    if (asc) {
-      this.coleccion[n][1].sort((a, b) => a.getDuracion().localeCompare(b.getDuracion()));
-    } else {
-      this.coleccion[n][1].sort((a, b) => b.getDuracion().localeCompare(a.getDuracion()));
-    }
+  displayPlaylistSongs() {
+    console.log('──────────────────────────');
+    this.actualPlaylistSongs.forEach((cancion)=> {
+      console.log(cancion);
+      console.log('──────────────────────────');
+    });
   }
 }
+
+const j: Gestor = new Gestor();
+j.ordAlfPlaylistCan(true, 0);
