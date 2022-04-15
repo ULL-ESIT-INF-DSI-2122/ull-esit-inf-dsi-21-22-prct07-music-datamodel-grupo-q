@@ -243,13 +243,139 @@ La implementación de las interfacces dentro de la clase `JsonCancionCollection`
   }
 ```
 
-# Gestión e inquirer
-
-## Clase Gestor
-
-El objetivo de esta clase es 
-
 ## Inquirer
+Hemos utilizado la herramienta `Inquirer.ts` para realizar toda la interacion con el usuario. Optamos por
+separar cada `prompt` de inquirer en ficheros diferentes para cada clase manejada. Todos los ficheros son
+semejantes, pero adaptados a cada clase en cuestion, vamos a revisar por ejemplo el fichero `albumInq.ts`
+desglosandolo desde principio a fin y analizando cada parte:
+
+### Inicializacion
+```Typescript
+import * as inquirer from 'inquirer';
+import * as alb from '../estructura/album';
+let scanf = require('scanf');
+import {mainPrompt} from './index';
+
+const albCol: alb.JsonAlbumCollection = new alb.JsonAlbumCollection([]);
+```
+
+Importamos todos los elementos necesarios para las funcionalidades, y definimos la clase que hara de
+interfaz con la base de datos, en este caso de `albumes`. Declarandola globalmente, podemos acceder y
+manipular estos datos desde todas las pantallas.
+
+### Pantalla principal
+```Typescript
+export function promptUser(): void {
+
+  enum Comandos{
+    Add = "Añadir album",
+    List = "Listar album",
+    Delete = "Borrar album",
+    Mod = 'Modificar album',
+    Purge = "Borrar albumes",
+    Quit = "Quit"
+  }
+  console.clear();
+  inquirer.prompt({
+          type: "list",
+          name: "command",
+          message: "Elija una opcion:",
+          choices: Object.values(Comandos),
+  }).then((answers) => {
+      switch (answers["command"]) {
+          case Comandos.Add:
+            promptAdd();
+            break;
+          case Comandos.Delete:
+            promptDelete();
+            break;
+          case Comandos.List:
+            promptList();
+            break;
+          case Comandos.Mod:
+            promptMod();
+            break;
+          case Comandos.Purge:
+            promptUser();
+            break;
+          case Comandos.Quit:
+            mainPrompt();
+            break;
+      }
+  });
+}
+```
+Crea una `prompt de inquirer`, que consiste en una lista para seleccionar la opcion deseada, entre las
+definidas en el `enum Comandos`, y con un `switch` controlando el valor seleccionado con `aswers`, que es
+donde `inquirer` guarda los resultados de la `prompt`, llevandonos a la pantalla correspondiente que 
+hayamos seleccionado.
+
+### Algunas pantallas
+
+#### PromptAdd
+
+```Typescript
+export function promptAdd() {
+  enum CAdd {
+    Nueva = "Añadir un Album nuevo",
+    Quit = "Salir"
+  }
+  console.clear();
+  inquirer.prompt({ type: "list", name: "AddAlbum", message: "Añadir Album:",
+                    choices: Object.values(CAdd)})
+      .then(answers => {
+        switch (answers["AddAlbum"]) {
+          case CAdd.Nueva:
+            process.stdout.write('Nombre> ');
+            const n: string = scanf('%s');
+            if (!albCol.includesAlbum(n)) {
+              process.stdout.write('Autor> ');
+              const a: string = scanf('%s');
+              process.stdout.write('Año de publicacion> ');
+              const d: number = scanf('%d');
+              process.stdout.write('Generos separados por ","> ');
+              const b: string = scanf('%s');
+              const g: string[] = b.split(',');
+              process.stdout.write('Canciones separadas por ","> ');
+              const e: string = scanf('%s');
+              const c: string[] = e.split(',');
+              albCol.addAlbum(n, a, d, g, c);
+            } else {
+              console.log(n, ' ya esta registrada.');
+              console.log('Pulse cualquier tecla para continuar.');
+              scanf('%s');
+            }
+            promptUser();
+            break;
+          case CAdd.Quit:
+            promptUser();
+            break;
+        }
+      });
+}
+```
+Define una pantalla en la que podemos introducir los datos de una cancion nueva que queramos crear.
+
+#### PromptDelete
+
+```Typescript
+export function promptDelete() { // col.coleccion.map(e => e.getNombre())
+  console.clear();
+  inquirer.prompt({
+       type: "checkbox", name: "DelAlbEx",
+       message: "Seleccione las canciones que quiera borrar: ",
+       choices: albCol.coleccion.map(e => e.getNombre())})
+      .then(answers => {
+        let borradas = answers["DelAlbEx"] as string[];
+        albCol.deleteAlbumVector(borradas);
+        promptUser();
+      });
+}
+```
+Crea una `checkbox` de `inquirer` en la que las opciones son los propios nombres de todos los albumes
+registrados en la base de datos, al seleccionar uno o un conjunto de ellos, esta seleccion se almacena en
+`answer` como vimos otras pantallas, y ahora guarda un vector de cadenas representando los nombres de los
+albumes a borrar. Simplemente resta invocar al metodo que borra los albumes indicados en un array de strings.
 
 ## Test
 

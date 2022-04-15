@@ -74,6 +74,9 @@ export class JsonCancionCollection implements CommonOrdenable<Cancion>, CancionO
           } // Deberia hacer un else para crear la base
           this.displayMod = this.coleccion;
     }
+    getCollection(): Cancion[] {
+      return this.coleccion;
+    }
     addCancion(n: string, a: string, g: string[], d: string, s: boolean, r: number) {
         this.coleccion.push(new Cancion(n, a, g, d, s, r));
         this.database.get("canciones").push({nombre: n, autor: a, generos: g, duracion: d, single: s, reproducciones: r}).write();

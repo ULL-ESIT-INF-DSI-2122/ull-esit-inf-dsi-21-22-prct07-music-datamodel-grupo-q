@@ -8,6 +8,10 @@ import * as pla from "./playlist";
 enum Att {Nombre, Autor, Canciones, Duracion, Generos};
 
 export class Gestor extends pla.JsonPlayListCollection {
+  /**
+   * Acceso a la base de datos de las canciones para obtener los datos necesarios para ordenar
+   */
+  private dbCanciones: can.JsonCancionCollection = new can.JsonCancionCollection([]);
   private actualPlaylistSongs: string[];
   private user: string;
   constructor() {
@@ -94,15 +98,19 @@ export class Gestor extends pla.JsonPlayListCollection {
    * @param asc si la ordenacion es ascendente o no
    * @param n playlist a ordenar
    */
-  ordAlfPlaylistCan(asc: boolean, n: number) {
-    this.actualPlaylistSongs = this.coleccion[n][1];
+  ordAlfPlaylistCan(asc: boolean, n: string) {
+    this.actualPlaylistSongs = this.getPlayListByName(n).getCanciones();
     if (asc) {
       this.actualPlaylistSongs.sort((a, b) => a[0].localeCompare(b[0]));
     } else {
       this.actualPlaylistSongs.sort((a, b) => b[0].localeCompare(a[0]));
     }
   }
-  ordAlfPlaylistAut(asc: boolean, n: number) {
+  ordAlfPlaylistAut(asc: boolean, n: string) {
+    this.getCollection().forEach((c) => {
+       if (c.getAutor() === '') {
+       }
+    });
     if (asc) {
       this.coleccion[n][1].sort((a, b) => a.getAutor().localeCompare(b.getAutor()));
     } else {
@@ -155,3 +163,4 @@ export class Gestor extends pla.JsonPlayListCollection {
 
 const j: Gestor = new Gestor();
 j.ordAlfPlaylistCan(true, 0);
+j.displayPlaylistSongs();

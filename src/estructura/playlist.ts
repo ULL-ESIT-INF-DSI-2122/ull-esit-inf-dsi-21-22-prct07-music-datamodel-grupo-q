@@ -101,6 +101,9 @@ export class PlayList {
       });
     }
     */
+    getCollection(): PlayList[] {
+      return this.coleccion;
+    }
     getPlayList(n: number): PlayList {
         return this.coleccion[n];
     }

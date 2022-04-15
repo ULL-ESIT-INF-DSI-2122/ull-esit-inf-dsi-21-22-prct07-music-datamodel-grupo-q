@@ -99,6 +99,71 @@ export function promptAdd() {
       });
 }
 
+export function promptAddCanciones() {
+  enum CAdd {
+    Nueva = "Añadir un Album nuevo",
+    Existente = "Añadir una cancion existente",
+    Quit = "Salir"
+  }
+  console.clear();
+  inquirer.prompt({ type: "list", name: "Add", message: "Añadir Album:",
+                    choices: Object.values(CAdd)})
+      .then(answers => {
+        switch (answers["Add"]) {
+          case CAdd.Nueva:
+            process.stdout.write('Nombre> ');
+            const n: string = scanf('%s');
+            if (!gestor.includesPlayList(n)) {
+              process.stdout.write('Autor> ');
+              const a: string = scanf('%s');
+              process.stdout.write('Año de publicacion> ');
+              const d: number = scanf('%d');
+              process.stdout.write('Generos separados por ","> ');
+              const b: string = scanf('%s');
+              const g: string[] = b.split(',');
+              process.stdout.write('Canciones separadas por ","> ');
+              const e: string = scanf('%s');
+              const c: string[] = e.split(',');
+              // plaCol.addPlayList(n, a, d, g, c);
+            } else {
+              console.log(n, ' ya esta registrada.');
+              console.log('Pulse cualquier tecla para continuar.');
+              scanf('%s');
+            }
+            promptUser();
+            break;
+          case CAdd.Quit:
+            promptUser();
+            break;
+        }
+      });
+}
+
+
+export function promptListPlaylist() {
+  enum CList{
+    Ordenar = "Ordenar",
+    Quit = "Salir"
+  }
+  console.clear();
+  gestor.displayOrdenedPlayList();
+  inquirer.prompt({
+    type: "list",
+    name: "comand",
+    message: "Teclee para continuar",
+    choices: Object.values(CList),
+  }).then(answers => {
+    switch (answers["comand"]) {
+      case CList.Ordenar:
+        promptOrd();
+        break;
+      case CList.Quit:
+        promptUser();
+        break;
+    }
+  });
+}
+
 export function promptOrd() {
   enum COrd{
     Nom = "Nombre",
@@ -129,9 +194,53 @@ export function promptOrd() {
   });
 }
 
+export function promptManagePlaylist(nombre: string): void {
+
+  enum Comandos{
+    Add = "Añadir Cancion",
+    List = "Listar Canciones",
+    Delete = "Borrer canciones",
+    Quit = "Quit"
+  }
+  console.clear();
+  inquirer.prompt({
+          type: "list",
+          name: "command",
+          message: "Elija una opcion:",
+          choices: Object.values(Comandos),
+  }).then((answers) => {
+    switch (answers["command"]) {
+      case Comandos.List:
+        promptListCanciones();
+        break;
+      case Comandos.Add:
+        promptAddCanciones();
+        break;
+      case Comandos.Delete:
+        promptDeleteCanciones();
+          break;
+      case Comandos.Quit:
+        mainPrompt();
+        break;
+    }
+  });
+}
+
+export function promptSeleccionar() {
+  console.clear();
+  inquirer.prompt({
+       type: "checkbox", name: "sel",
+       message: "Seleccione la playlist: ",
+       choices: gestor.coleccion.map(e => e.getNombre())})
+      .then(answers => {
+        promptManagePlaylist(answers["sel"][0]);
+      });
+}
+
 export function promptList() {
   enum CList{
     Ordenar = "Ordenar",
+    Seleccionar = "Seleccionar",
     Quit = "Salir"
   }
   console.clear();
@@ -145,6 +254,9 @@ export function promptList() {
     switch (answers["comand"]) {
       case CList.Ordenar:
         promptOrd();
+        break;
+      case CList.Seleccionar:
+        promptSeleccionar();
         break;
       case CList.Quit:
         promptUser();
