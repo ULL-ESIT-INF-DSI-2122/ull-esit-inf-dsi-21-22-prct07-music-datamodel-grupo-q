@@ -12,6 +12,7 @@ export class Gestor extends pla.JsonPlayListCollection {
    * Acceso a la base de datos de las canciones para obtener los datos necesarios para ordenar
    */
   private dbCanciones: can.JsonCancionCollection = new can.JsonCancionCollection([]);
+  private selectedPlaylist: string;
   private actualPlaylistSongs: string[];
   private user: string;
   constructor() {
@@ -62,9 +63,36 @@ export class Gestor extends pla.JsonPlayListCollection {
     return this.displayMod;
 }
   getPlayListByName(n: string): pla.PlayList | undefined {
-    return this.coleccion.find((element) => {
-      element.getNombre() === n;
+    return this.coleccion.find((element) => element.getNombre() === n);
+  }
+  getActualSongs(): string[] {
+    return this.actualPlaylistSongs;
+  }
+  setSelectedPlaylist(s: string) {
+    this.selectedPlaylist = s;
+    this.actualPlaylistSongs = this.getPlayListByName(s).getCanciones();
+  }
+
+  addSongToActualPlaylist(s: string) {
+    this.actualPlaylistSongs.push(s);
+  }
+  addSongVectorToActualPlaylist(s: string[]) {
+    s.forEach(element => {
+      this.actualPlaylistSongs.push(element);
     });
+  }
+  deleteSongFromActualPlaylist(s: string) {
+    this.actualPlaylistSongs = this.actualPlaylistSongs.filter(buenas => {
+      buenas !== s;
+    });
+  }
+  deleteSongVectorFromActualPlaylist(s: string[]) {
+    this.actualPlaylistSongs = this.actualPlaylistSongs.filter(buenas => {
+      !s.includes(buenas);
+    });
+  }
+  getTodasCanciones(): can.Cancion[] {
+    return this.dbCanciones.getCollection();
   }
   /**
    * Usa un metodo generico para asignar un valor de un determinado
@@ -160,7 +188,7 @@ export class Gestor extends pla.JsonPlayListCollection {
     });
   }
 }
-
+/*
 const j: Gestor = new Gestor();
 j.ordAlfPlaylistCan(true, 0);
-j.displayPlaylistSongs();
+j.displayPlaylistSongs(); */

@@ -2,6 +2,7 @@ import * as inquirer from 'inquirer';
 let scanf = require('scanf');
 import {mainPrompt} from './index';
 import {Gestor} from '../estructura/gestor';
+import { setDefaultResultOrder } from 'dns';
 
 const gestor: Gestor = new Gestor();
 
@@ -113,32 +114,48 @@ export function promptAddCanciones() {
           case CAdd.Nueva:
             process.stdout.write('Nombre> ');
             const n: string = scanf('%s');
-            if (!gestor.includesPlayList(n)) {
-              process.stdout.write('Autor> ');
-              const a: string = scanf('%s');
-              process.stdout.write('Año de publicacion> ');
-              const d: number = scanf('%d');
-              process.stdout.write('Generos separados por ","> ');
-              const b: string = scanf('%s');
-              const g: string[] = b.split(',');
-              process.stdout.write('Canciones separadas por ","> ');
-              const e: string = scanf('%s');
-              const c: string[] = e.split(',');
-              // plaCol.addPlayList(n, a, d, g, c);
-            } else {
-              console.log(n, ' ya esta registrada.');
-              console.log('Pulse cualquier tecla para continuar.');
-              scanf('%s');
-            }
+            gestor.addSongToActualPlaylist(n);
             promptUser();
-            break;
+          break;
+          case CAdd.Existente:
+            inquirer.prompt({ type: "checkbox", name: "selCan", message: "Cancion a añadir:",
+            choices: gestor.getTodasCanciones().map(e => e.getNombre())})
+              .then(answers => {
+                gestor.addSongVectorToActualPlaylist(answers["selCan"]);
+              });
+              promptListCanciones();
+              break;
           case CAdd.Quit:
-            promptUser();
+            promptListCanciones();
             break;
         }
       });
 }
 
+export function promptDeleteCanciones() {
+  enum CAdd {
+    delete = "Borrar una cancion",
+    Quit = "Salir"
+  }
+  console.clear();
+  inquirer.prompt({ type: "list", name: "Add", message: "Seleccione las canciones a borrar:",
+                    choices: Object.values(CAdd)})
+      .then(answers => {
+        switch (answers["Add"]) {
+          case CAdd.delete:
+            inquirer.prompt({ type: "checkbox", name: "selCan", message: "Cancion a añadir:",
+            choices: gestor.getActualSongs()})
+              .then(answers => {
+                gestor.deleteSongVectorFromActualPlaylist(answers["selCan"]);
+              });
+              promptListCanciones();
+              break;
+          case CAdd.Quit:
+            promptListCanciones();
+            break;
+        }
+      });
+}
 
 export function promptListPlaylist() {
   enum CList{
@@ -193,8 +210,28 @@ export function promptOrd() {
     }
   });
 }
+// No hace nada
+export function promptListCanciones() {
+  enum CList{
+    Quit = "Salir"
+  }
+  console.clear();
 
-export function promptManagePlaylist(nombre: string): void {
+  inquirer.prompt({
+    type: "list",
+    name: "comand",
+    message: "Teclee para continuar",
+    choices: Object.values(CList),
+  }).then(answers => {
+    switch (answers["comand"]) {
+      case CList.Quit:
+        promptUser();
+        break;
+    }
+  });
+}
+
+export function promptManagePlaylist(): void {
 
   enum Comandos{
     Add = "Añadir Cancion",
@@ -203,6 +240,7 @@ export function promptManagePlaylist(nombre: string): void {
     Quit = "Quit"
   }
   console.clear();
+  gestor.displayPlaylistSongs();
   inquirer.prompt({
           type: "list",
           name: "command",
@@ -233,7 +271,8 @@ export function promptSeleccionar() {
        message: "Seleccione la playlist: ",
        choices: gestor.coleccion.map(e => e.getNombre())})
       .then(answers => {
-        promptManagePlaylist(answers["sel"][0]);
+        gestor.setSelectedPlaylist(answers["sel"][0]);
+        promptManagePlaylist();
       });
 }
 
