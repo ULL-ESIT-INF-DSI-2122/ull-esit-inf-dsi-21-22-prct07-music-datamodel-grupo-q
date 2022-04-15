@@ -41,31 +41,31 @@ export class Genero {
   setCanciones(canciones: string[]): void {
       this.canciones_ = canciones;
   }
-  
+
   printData() {
     console.log(this.nombre_);
-    console.log('Componentes:');
-    this.grupos_.forEach((c) => {
-      console.log('   ', c);
-    });
-    console.log('Generos:');
-    this.artistas_.forEach((g) => {
+    console.log('Grupos:');
+    this.grupos_.forEach((g) => {
       console.log('   ', g);
+    });
+    console.log('Artistas:');
+    this.artistas_.forEach((a) => {
+      console.log('   ', a);
     });
     console.log('Albumes:');
     this.albumes_.forEach((a) => {
       console.log('   ', a);
     });
     console.log('Canciones:');
-    this.canciones_.forEach((a) => {
-      console.log('   ', a);
+    this.canciones_.forEach((c) => {
+      console.log('   ', c);
     });
   }
 }
 
 export class JsonGeneroCollection {
     private displayMod: Genero[];
-    private database:lowdb.LowdbSync<schemaGenero>; 
+    private database:lowdb.LowdbSync<schemaGenero>;
     constructor(public coleccion: Genero[]) {
         this.database = lowdb(new FileSync("dataBase/db_generos.json"));
         if (this.database.has("generos").value()) {
@@ -80,12 +80,12 @@ export class JsonGeneroCollection {
     }
     deleteGenero(n: string) {
         this.database.get("generos").remove({nombre: n}).write();
-        this.coleccion = this.coleccion.filter(element => { element.getNombre() !== n});
+        this.coleccion = this.coleccion.filter(element => {element.getNombre() !== n;});
       }
       deleteGeneroVector(gs: string[]) {
         gs.forEach(e => {
           this.database.get("generos").remove({nombre: e}).write();
-          this.coleccion = this.coleccion.filter(buenas => { buenas.getNombre() !== e});
+          this.coleccion = this.coleccion.filter(buenas => {buenas.getNombre() !== e;});
         });
       }
       getGenero(n: number): Genero {

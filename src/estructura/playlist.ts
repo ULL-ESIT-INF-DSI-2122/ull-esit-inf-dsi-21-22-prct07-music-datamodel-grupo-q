@@ -44,7 +44,7 @@ export class PlayList {
     }
   }
 
-  export class Gestor implements CommonOrdenable<PlayList>{
+  export class Gestor implements CommonOrdenable<PlayList> {
     private displayMod: PlayList[];
     private database:lowdb.LowdbSync<schemaPlayList>;
     constructor(public coleccion: PlayList[]) {
@@ -55,11 +55,10 @@ export class PlayList {
         } // Deberia hacer un else para crear la base o algo asi
         this.displayMod = this.coleccion;
     }
-    
     addPlayList(nuevo: boolean, existente: number = 0, n: string, a: string, c: string[], d: string, g: string[]) {
       if (nuevo) {
         this.coleccion.push(new PlayList(n, a, c, d, g));
-        this.database.get("playlists").push({nombre: n, canciones: c, duracion: d, generos: g}).write();
+        this.database.get("playlists").push({nombre: n, autor: a, canciones: c, duracion: d, generos: g}).write();
       } else {
         c.push(this.coleccion[existente][1]);
         d = d + this.coleccion[existente][2];
@@ -68,27 +67,28 @@ export class PlayList {
       }
     }
     deletePlayList(n: string, ususario: string) {
-      if((this.getPlayListByName(n).getAutor() != 'Sistema')&&(this.getPlayListByName(n).getAutor() == 'Usuario'))
+      if ((this.getPlayListByName(n).getAutor() != 'Sistema')&&(this.getPlayListByName(n).getAutor() == 'Usuario')) {
         this.database.get("playlists").remove({nombre: n}).write();
         this.coleccion = this.coleccion.filter(element => {element.getNombre() !== n;});
       }
-      deletePlayListVector(gs: string[]) {
-        gs.forEach(e => {
-          this.database.get("playlists").remove({nombre: e}).write();
-          this.coleccion = this.coleccion.filter(buenas => {buenas.getNombre() !== e;});
-        });
-      }
-      getPlayList(n: number): PlayList {
-          return this.coleccion[n];
-      }
-      includesPlayList(n: string): boolean {
-        let isIn: boolean = false;
-        this.coleccion.forEach(element => {
-          if (element.getNombre() === n) {
-            isIn = true;
-          }
-        });
-        return isIn;
+    }
+    deletePlayListVector(gs: string[]) {
+      gs.forEach(e => {
+        this.database.get("playlists").remove({nombre: e}).write();
+        this.coleccion = this.coleccion.filter(buenas => {buenas.getNombre() !== e;});
+      });
+    }
+    getPlayList(n: number): PlayList {
+        return this.coleccion[n];
+    }
+    includesPlayList(n: string): boolean {
+      let isIn: boolean = false;
+      this.coleccion.forEach(element => {
+        if (element.getNombre() === n) {
+          isIn = true;
+        }
+      });
+      return isIn;
     }
     ordAlfabeticoTitulo(asc: boolean): PlayList[] {
       this.displayMod = this.coleccion;

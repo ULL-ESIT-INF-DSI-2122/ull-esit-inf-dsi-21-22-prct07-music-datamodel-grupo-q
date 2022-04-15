@@ -5,6 +5,7 @@ let scanf = require('scanf');
 import * as can from './cancionInq';
 import * as gru from './grupoInq';
 import * as gen from './generoInq';
+import * as alb from './albumInq';
 
 export function mainPrompt(): void {
   let quit: boolean = false;
@@ -25,13 +26,14 @@ export function mainPrompt(): void {
   }).then((answers) => {
     switch (answers["command"]) {
         case Comandos.can:
-            can.promptUser();
-            break;
+          can.promptUser();
+          break;
         case Comandos.gru:
-            gru.promptUser();
-            break;
+          gru.promptUser();
+          break;
         case Comandos.alb:
-            break;
+          alb.promptUser();
+          break;
         case Comandos.gen:
           gen.promptUser();
           break;
