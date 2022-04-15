@@ -1,8 +1,8 @@
 import 'mocha';
 import {expect} from 'chai';
-import {PlayList, Gestor} from '../src/estructura/playlist';
+import {PlayList, JsonPlayListCollection} from '../src/estructura/playlist';
 
-const grp = new Gestor([]);
+const grp = new JsonPlayListCollection([]);
 
 describe('Comprobar clase PlayList - Test', () => {
   describe('Comprobar clase JsonPlayListCollection', () => {
@@ -27,10 +27,16 @@ describe('Comprobar clase PlayList - Test', () => {
     it('Existe función ordAlfabeticoTitulo()', () => {
       expect(grp.ordAlfabeticoTitulo(true)).to.eql([]);
     });
+    it('Existe función ordDuracion()', () => {
+      expect(grp.ordDuracion(true)).to.eql([]);
+    });
     it('Existe función getPlayListByName()', () => {
       expect(grp.getPlayListByName('PlayList 1')).to.not.be.null;
     });
-    it('Existe función updateAlfPlaylistCan()', () => {
+    it('Existe función ordReproduccionesPlaylist()', () => {
+      expect(grp.ordReproduccionesPlaylist(true, 1)).to.not.be.null;
+    });
+    it('Existe fuordReproduccionesPlaylistnción updateAlfPlaylistCan()', () => {
       expect(grp.updateAlfPlaylistCan(true, 1)).to.not.be.null;
     });
     it('Existe función updateAlfPlaylistAut()', () => {
@@ -45,9 +51,7 @@ describe('Comprobar clase PlayList - Test', () => {
     it('Existe función updatePlaylistDur()', () => {
       expect(grp.updatePlaylistDur(true, 1)).to.not.be.null;
     });
-    it('Existe función ordReproduccionesPlaylist()', () => {
-      expect(grp.ordReproduccionesPlaylist(true, 1)).to.not.be.null;
-    });
+
   });
   describe('Atributos de la clase PlayList', () => {
     it('Existe un Getter de tipo "Nombre"', () => {
