@@ -3,22 +3,22 @@
         {
             "nombre": "PlayList 1",
             "autor": "Sistema",
-            "canciones": ["Motomami", "Saoko"],
-            "duracion": "4:01",
+            "canciones": ["Motomami", "Etapas raras"],
+            "duracion": "5:10",
             "generos": ["Pop", "Pop"]
         },
         {
             "nombre": "PlayList 2",
             "autor": "Sistema",
             "canciones": ["Alone", "Enemy"],
-            "duracion": "4:10",
+            "duracion": "6:18",
             "generos": ["Pop", "Pop"]
         },
         {
             "nombre": "PlayList 3",
             "autor": "Sistema",
             "canciones": ["Time Out", "Respect"],
-            "duracion": "4:10",
+            "duracion": "6:20",
             "generos": ["Soul", "Rock"]
         }
     ]
