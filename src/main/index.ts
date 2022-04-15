@@ -6,6 +6,7 @@ import * as can from './cancionInq';
 import * as gru from './grupoInq';
 import * as gen from './generoInq';
 import * as alb from './albumInq';
+import * as art from './artistaInq';
 
 export function mainPrompt(): void {
   let quit: boolean = false;
@@ -14,6 +15,7 @@ export function mainPrompt(): void {
     gru = "Grupos",
     alb = "Albumes",
     gen = "Generos",
+    art = "Artista",
     pla = "Playlists",
     Quit = "Quit"
   }
@@ -36,6 +38,9 @@ export function mainPrompt(): void {
           break;
         case Comandos.gen:
           gen.promptUser();
+          break;
+        case Comandos.art:
+          art.promptUser();
           break;
         case Comandos.pla:
           break;

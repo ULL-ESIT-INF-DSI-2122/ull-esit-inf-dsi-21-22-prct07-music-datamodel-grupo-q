@@ -15,22 +15,22 @@ export class Artista {
       private canciones_: string[]) {
         let oyentesInd: number = 0;
         let oyentesGrup: number = 0;
-        let col_canciones = new JsonCancionCollection([]);
-        let col_grupos = new JsonGrupoCollection([]);
+        let colCanciones = new JsonCancionCollection([]);
+        let colGrupos = new JsonGrupoCollection([]);
         this.canciones_.forEach((cancion) => {
-            if (col_canciones.includesCancion(cancion)) {
+            if (colCanciones.includesCancion(cancion)) {
                 this.grupos_.forEach((grupo) => {
-                    if (col_grupos.includesGrupo(grupo)) {
-                        if (col_canciones.getCancionByName(cancion).getAutor() == col_grupos.getGrupoByName(grupo).getNombre()) {
-                            oyentesInd = oyentesInd + col_canciones.getCancionByName(cancion).getReproducciones();
+                    if (colGrupos.includesGrupo(grupo)) {
+                        if (colCanciones.getCancionByName(cancion).getAutor() == colGrupos.getGrupoByName(grupo).getNombre()) {
+                            oyentesInd = oyentesInd + colCanciones.getCancionByName(cancion).getReproducciones();
                         }
                     }
                 });
             }
         });
         this.grupos_.forEach((grupo) => {
-            if (col_grupos.includesGrupo(grupo)) {
-                oyentesGrup = oyentesGrup + col_grupos.getGrupoByName(grupo).getOyentes();
+            if (colGrupos.includesGrupo(grupo)) {
+                oyentesGrup = oyentesGrup + colGrupos.getGrupoByName(grupo).getOyentes();
             }
         });
         this.oyentesMensuales_ = oyentesInd + oyentesGrup;
@@ -73,11 +73,30 @@ export class Artista {
     setOyentes(oyentes: number): void {
         this.oyentesMensuales_ = oyentes;
     }
+    printData() {
+      console.log(this.nombre_);
+      console.log('Grupos:');
+      this.grupos_.forEach((g) => {
+        console.log('   ', g);
+      });
+      console.log('Generos:');
+      this.generos_.forEach((g) => {
+        console.log('   ', g);
+      });
+      console.log('Albumes:');
+      this.albumes_.forEach((a) => {
+        console.log('   ', a);
+      });
+      console.log('Canciones:');
+      this.canciones_.forEach((c) => {
+        console.log('   ', c);
+      });
+    }
   }
 
   export class JsonArtistaCollection {
     private displayMod: Artista[];
-    private database:lowdb.LowdbSync<schemaArtista>; 
+    private database:lowdb.LowdbSync<schemaArtista>;
     constructor(public coleccion: Artista[]) {
         this.database = lowdb(new FileSync("dataBase/db_artistas.json"));
         if (this.database.has("artistas").value()) {
@@ -92,12 +111,12 @@ export class Artista {
     }
     deleteArtista(n: string) {
         this.database.get("artistas").remove({nombre: n}).write();
-        this.coleccion = this.coleccion.filter(element => { element.getNombre() !== n});
+        this.coleccion = this.coleccion.filter(element => {element.getNombre() !== n;});
       }
       deleteArtistaVector(gs: string[]) {
         gs.forEach(e => {
           this.database.get("artistas").remove({nombre: e}).write();
-          this.coleccion = this.coleccion.filter(buenas => { buenas.getNombre() !== e});
+          this.coleccion = this.coleccion.filter(buenas => {buenas.getNombre() !== e;});
         });
       }
       getArtista(n: number): Artista {
@@ -115,6 +134,13 @@ export class Artista {
     getArtistaByName(n: string): Artista | undefined {
       return this.coleccion.find((element) => {
         element.getNombre() === n;
+      });
+    }
+    displayOrdenedArtistas() {
+      console.log('──────────────────────────');
+      this.displayMod.forEach((artista)=> {
+        artista.printData();
+        console.log('──────────────────────────');
       });
     }
 }
