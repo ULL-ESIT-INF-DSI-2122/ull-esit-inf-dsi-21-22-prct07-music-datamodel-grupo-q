@@ -57,16 +57,16 @@ describe('Comprobar clase PlayList - Test', () => {
   });
   describe('Atributos de la clase PlayList', () => {
     it('Existe un Getter de tipo "Nombre"', () => {
-      expect(ply.getPlayList(0).getNombre()).to.eql('PlayList 2');
+      expect(ply.getPlayList(0).getNombre()).to.eql('PlayList 1');
     });
     it('Existe un Getter de tipo "Autor"', () => {
       expect(ply.getPlayList(0).getAutor()).to.eql('Sistema');
     });
     it('Existe un Getter de tipo "Canciones"', () => {
-      expect(ply.getPlayList(0).getCanciones()).to.eql(["Alone", "Enemy"]);
+      expect(ply.getPlayList(0).getCanciones()).to.eql(["Motomami", "Respect"]);
     });
     it('Existe un Getter de tipo "Duración"', () => {
-      expect(ply.getPlayList(0).getDuracion()).to.eql("6:18");
+      expect(ply.getPlayList(0).getDuracion()).to.eql("5:20");
     });
     it('Existe un Getter de tipo "Géneros"', () => {
       expect(ply.getPlayList(0).getGeneros()).to.eql(["Pop", "Pop"]);
