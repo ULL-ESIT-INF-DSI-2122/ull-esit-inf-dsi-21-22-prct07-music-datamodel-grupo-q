@@ -1,6 +1,9 @@
 import {Genero} from "./genero";
 import {Cancion} from "./cancion";
 
+/**
+ * Esquemas  de tipo para representar los elementos de formato .json a clases
+ */
 export type schemaCancion = {
     canciones: {nombre: string, autor: string, generos: string[], duracion: string, single: boolean, reproducciones: number}[]
 };
