@@ -45,7 +45,7 @@ export class Album {
     }
 }
 
-export class JsonAlbumCollection implements CommonOrdenable<Album>{
+export class JsonAlbumCollection implements CommonOrdenable<Album>, AlbumOrdenable{
     private displayMod: Album[];
     private database:lowdb.LowdbSync<schemaAlbum>; 
     constructor(public coleccion: Album[]) {
@@ -87,7 +87,22 @@ export class JsonAlbumCollection implements CommonOrdenable<Album>{
         element.getNombre() === n;
       });
     }
-    ordReproducciones(asc: boolean): Album[] {
-        return [];
+    ordAlfabeticoTitulo(asc: boolean): Album[] {
+        this.displayMod = this.coleccion;
+        if (asc) {
+          this.displayMod.sort((a, b) => a.getNombre().localeCompare(b.getNombre()));
+        } else {
+          this.displayMod.sort((a, b) => b.getNombre().localeCompare(a.getNombre()));
+        }
+        return this.displayMod;
+    }
+    ordAño(asc: boolean): Album[] {
+        this.displayMod = this.coleccion;
+        if (asc) {
+          this.displayMod.sort((a, b) => a.getAño() - b.getAño());
+        } else {
+          this.displayMod.sort((a, b) => b.getAño() - a.getAño());
+        }
+        return this.displayMod;
     }
 }

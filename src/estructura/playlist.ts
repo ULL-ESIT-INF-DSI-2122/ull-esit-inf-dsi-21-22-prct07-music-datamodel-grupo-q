@@ -1,7 +1,7 @@
 import lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import { schemaPlayList } from "./schema";
-import {PlaylistOrdenable, CommonOrdenable} from "../Interfaces/BaseInterface";
+import {CommonOrdenable} from "../Interfaces/BaseInterface";
 
 export class PlayList {
     constructor(
@@ -44,7 +44,7 @@ export class PlayList {
     }
   }
 
-  export class Gestor {
+  export class Gestor implements CommonOrdenable<PlayList>{
     private displayMod: PlayList[];
     private database:lowdb.LowdbSync<schemaPlayList>;
     constructor(public coleccion: PlayList[]) {
@@ -90,6 +90,15 @@ export class PlayList {
         });
         return isIn;
     }
+    ordAlfabeticoTitulo(asc: boolean): PlayList[] {
+      this.displayMod = this.coleccion;
+      if (asc) {
+        this.displayMod.sort((a, b) => a.getNombre().localeCompare(b.getNombre()));
+      } else {
+        this.displayMod.sort((a, b) => b.getNombre().localeCompare(a.getNombre()));
+      }
+      return this.displayMod;
+  }
     getPlayListByName(n: string): PlayList | undefined {
       return this.coleccion.find((element) => {
         element.getNombre() === n;
