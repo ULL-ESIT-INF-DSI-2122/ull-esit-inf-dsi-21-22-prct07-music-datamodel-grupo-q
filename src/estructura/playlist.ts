@@ -139,7 +139,6 @@ export class PlayList {
         this.coleccion[n][1].sort((a, b) => b.getDuracion().localeCompare(a.getDuracion()));
       }
     }
-
     ordReproduccionesPlaylist(asc: boolean, n: number) {
       if (asc) {
         this.coleccion[n][1].sort((a, b) => a.getReproducciones() - b.getReproducciones());

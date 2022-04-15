@@ -1,22 +1,6 @@
 {
   "artistas": [
     {
-      "nombre": "Thelonious Monk",
-      "grupos": [
-        "Grupo 1"
-      ],
-      "generos": [
-        "Pop",
-        "Electronica"
-      ],
-      "albumes": [
-        "Motomami"
-      ],
-      "canciones": [
-        "Hot Fives and Sevens"
-      ]
-    },
-    {
       "nombre": "Pharmacist",
       "grupos": [
         "Grupo 2"
@@ -110,6 +94,36 @@
       ],
       "canciones": [
         "North Memphis"
+      ]
+    },
+    {
+      "nombre": "Pharmacist",
+      "grupos": [
+        "Grupo 1"
+      ],
+      "generos": [
+        "Grupo 1"
+      ],
+      "albumes": [
+        "Motomami"
+      ],
+      "canciones": [
+        "A Love Supreme"
+      ]
+    },
+    {
+      "nombre": "Pharmacist",
+      "grupos": [
+        "Grupo 1"
+      ],
+      "generos": [
+        "Grupo 1"
+      ],
+      "albumes": [
+        "Motomami"
+      ],
+      "canciones": [
+        "A Love Supreme"
       ]
     }
   ]

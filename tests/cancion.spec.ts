@@ -1,6 +1,6 @@
 import 'mocha';
-import { expect } from 'chai';
-import { Cancion, JsonCancionCollection } from '../src/estructura/cancion';
+import {expect} from 'chai';
+import {Cancion, JsonCancionCollection} from '../src/estructura/cancion';
 
 const col = new JsonCancionCollection([]);
 
@@ -16,13 +16,13 @@ describe('Comprobar clase Cancion - Test', () => {
       col.deleteCancionesVector(['Buleria']);
     });
     it('Existe Función getCancion()', () => {
-      expect(col.getCancion(0).getNombre()).to.eql('Alone');
+      expect(col.getCancion(0).getNombre()).to.eql('Te Quiero');
     });
     it('Existe función includesCancion()', () => {
-      expect(col.includesCancion("Alone")).to.eql(true);
+      expect(col.includesCancion("Te Quiero")).to.eql(true);
     });
     it('Existe Función getCancionByName()', () => {
-      expect(col.getCancionByName("Prueba")).to.eql(undefined);
+      expect(col.getCancionByName("Prueba")).to.eql(false);
     });
     it('Existe función ordSingles()', () => {
       expect(col.ordSingles(true)).to.eql([]);
@@ -42,46 +42,46 @@ describe('Comprobar clase Cancion - Test', () => {
   });
   describe('Atributos de la clase Cancion', () => {
     it('Existe un Getter de tipo "Nombre"', () => {
-      expect(col.getCancion(0).getNombre()).to.eql('Alone');
+      expect(col.getCancion(0).getNombre()).to.eql('Te Quiero');
     });
     it('Existe un Getter de tipo "Autor"', () => {
-      expect(col.getCancion(0).getAutor()).to.eql('Alan Walker');
+      expect(col.getCancion(0).getAutor()).to.eql('David Tort');
     });
     it('Existe un Getter de tipo "Géneros"', () => {
-      expect(col.getCancion(0).getGeneros()).to.eql(['Pop', 'Electronica']);
+      expect(col.getCancion(0).getGeneros()).to.eql(['Techno']);
     });
     it('Existe un Getter de tipo "Duracion"', () => {
-      expect(col.getCancion(0).getDuracion()).to.eql('2:45');
+      expect(col.getCancion(0).getDuracion()).to.eql('6:01');
     });
     it('Existe un Getter de tipo "Single"', () => {
       expect(col.getCancion(0).getSingle()).to.eql(true);
     });
     it('Existe un Getter de tipo "Reproducciones"', () => {
-      expect(col.getCancion(0).getReproducciones()).to.be.deep.equal(1200000000);
+      expect(col.getCancion(0).getReproducciones()).to.be.deep.equal(22697);
     });
     it('Existe un Setter de tipo "Nombre', () => {
-      col.getCancion(0).setNombre("Alone");
-      expect(col.getCancion(0).getNombre()).to.eql("Alone");
+      col.getCancion(0).setNombre("Te Quiero");
+      expect(col.getCancion(0).getNombre()).to.eql("Te Quiero");
     });
-    it('Existe un Setter de tipo "Autor', () => {
-      col.getCancion(0).setAutor('Alan Walker');
-      expect(col.getCancion(0).getAutor()).to.eql('Alan Walker');
+    it('Existe un Setter de tipo "Autor"', () => {
+      col.getCancion(0).setAutor('Te Quiero');
+      expect(col.getCancion(0).getAutor()).to.eql('Te Quiero');
     });
-    it('Existe un Setter de tipo "Géneros', () => {
-      col.getCancion(0).setGeneros(['Pop', 'Electronica']);
-      expect(col.getCancion(0).getGeneros()).to.eql(['Pop', 'Electronica']);
+    it('Existe un Setter de tipo "Géneros"', () => {
+      col.getCancion(0).setGeneros(['David Tort']);
+      expect(col.getCancion(0).getGeneros()).to.eql(['David Tort']);
     });
-    it('Existe un Setter de tipo "Duracion', () => {
-      col.getCancion(0).setDuracion('2:45');
-      expect(col.getCancion(0).getDuracion()).to.eql('2:45');
+    it('Existe un Setter de tipo "Duracion"', () => {
+      col.getCancion(0).setDuracion('6:01');
+      expect(col.getCancion(0).getDuracion()).to.eql('6:01');
     });
-    it('Existe un Setter de tipo "Single', () => {
+    it('Existe un Setter de tipo "Single"', () => {
       col.getCancion(0).setSingle(true);
       expect(col.getCancion(0).getSingle()).to.eql(true);
     });
-    it('Existe un Setter de tipo "Reproducciones', () => {
-      col.getCancion(0).setReproducciones(1200000000);
-      expect(col.getCancion(0).getReproducciones()).to.eql(1200000000);
+    it('Existe un Setter de tipo "Reproducciones"', () => {
+      col.getCancion(0).setReproducciones(22697);
+      expect(col.getCancion(0).getReproducciones()).to.eql(22697);
     });
     it('Existe función printdata()', () => {
       expect(col.getCancion(0).printData()).to.not.be.null;
