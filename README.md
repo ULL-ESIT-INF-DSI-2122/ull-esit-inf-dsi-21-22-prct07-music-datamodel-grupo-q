@@ -7,6 +7,8 @@
     <a href='https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/node.js.yml'>
         <img src='https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/actions/workflows/node.js.yml/badge.svg' alt='Tests' />
     </a>
+    <a href="https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q">
+        <img alt="Sonar Cloud" src="https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2122_ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q&metric=alert_status">
 </p>
 
 ### Componentes del grupo que han realizado el proyecto:
@@ -25,7 +27,7 @@ Se llevará a cabo un informe acerca de todos los pasos, enumerando los diferent
 | **Repositorios Práctica 7:** |
 | --- |
 | [Acceso al Informe P7 - Digitalizando la colección de música de los abuelos]() |
-| [Acceso a la ruta del informe]() |
-| [Acceso al fichero código Typescript]() |
-| [Acceso al fichero de pruebas TDD]() |
-| [Acceso a la documentación generada con Typedoc]() |
+| [Acceso a la ruta del informe](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/blob/master/docs/index.md) |
+| [Acceso al fichero código Typescript](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/tree/master/src) |
+| [Acceso al fichero de pruebas TDD](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/tree/master/tests) |
+| [Acceso a la documentación generada con Typedoc](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo-q/tree/master/typedoc) |
